@@ -1,0 +1,65 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  {% set title = config.site_name %}
+  {% if page and page.title and not page.is_homepage %}
+    {% set title = config.site_name ~ " - " ~ page.title | striptags %}
+  {% endif %}
+  {% set image = config.site_url ~ 'assets/images/banner.png' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ config.site_description }}">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@squidfunk">
+  <meta name="twitter:creator" content="@squidfunk">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ config.site_description }}">
+  <meta name="twitter:image" content="{{ image }}">
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/overrides.9514a156.min.css' | url }}">
+{% endblock %}
+{% block announce %}
+  <a href="https://www.zhihu.com/people/jianzuoyi">
+    关注
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/zhihu.svg" %}
+    </span>
+    <strong>知乎: @简佐义</strong>
+  </a>
+
+  <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxMjQxMDYxNA==&scene=123&uin=MTUyMDQxMjc2NA%3D%3D&key=2af4ca460c7df26d37f7a2185149c8cd2f776f50e4543d178558d9c2e290287921cf780d41b66bd565a4861a746c9650b8cf9b0fd0aa9467315804f91ff53e4296f11aa34af9052bab9380e6fdf2d3e9f16943d439f683b3b02ae7970eccf7a307b48042cc4cae6f8df2d5a6d95ad4091815e16691795697311594955b6cbd0c&devicetype=Windows+10+x64&version=62090529&lang=zh_CN&a8scene=1&pass_ticket=1irB6rFs4mnZeGOT28uALO9s0C6m%2F%2Blj%2FzDx6WMl3o9zNeEVXWneuTe0LLv5PiWl">
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/weixin.svg" %}
+    </span>
+    <strong>微信: @简说基因</strong>
+
+  </a>
+{% endblock %}
+{% block content %}
+  {{ super() }}
+  <footer class="tx-content__footer md-typeset">
+    <a href="{{ 'insiders/' | url }}" title="Material for MkDocs Insiders">
+      <hr>
+      <span class="twemoji">
+        {% include ".icons/logo.svg" %}
+      </span>
+      <span class="twemoji">
+        {% include ".icons/material/plus.svg" %}
+      </span>
+      <span class="twemoji tx-heart">
+        {% include ".icons/octicons/heart-fill-24.svg" %}
+      </span>
+      <hr>
+    </a>
+  </footer>
+{% endblock %}
+{% block analytics %}
+  {{ super() }}
+  <script>document.addEventListener("DOMContentLoaded",function(){document.body.addEventListener("click",function(e){if(e.target instanceof HTMLElement){var t=e.target.closest("a[href^=http]");t&&ga("send","event","outbound","click",t.href)}})})</script>
+{% endblock %}

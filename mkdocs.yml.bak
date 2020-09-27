@@ -1,0 +1,73 @@
+# site information
+site_name: 简说基因官方网站
+site_url: https://jianzuoyi.github.io/jianshuojiyin/
+site_description: 简说基因 生物信息学 基因检测 一个生信人的自白：从生物转生信，我的学习与工作经历
+site_author: 简佐义 jianzuoyi zuoyijian
+
+# Github information
+repo_name: jianshuojiyin on Github
+repo_url: https://github.com/jianzuoyi/jianshuojiyin
+
+# Copyright
+copyright: Copyright &copy; 2020 Zuoyi Jian
+
+theme:
+  name: material
+
+  palette:
+    primary: 'deep purple'
+    accent: 'deep purple'
+
+  features:
+    - tabs
+
+  language: 'zh'
+
+  feature:
+    tabs: true
+
+# Customization
+extra:
+  disqus: 'Jianzuoyi'
+
+
+
+edit_uri:
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+nav:
+  - 简说基因:
+      - 1.一个生信人的自白: 01.aboutme.md
+      - 2.从拾写作: 02.markdown.md
+
+
