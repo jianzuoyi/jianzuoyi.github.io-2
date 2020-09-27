@@ -128,7 +128,7 @@ google_analytics:
 # Page tree
 nav:
   - 主页: index.md
-  - 简说基因:
+  - 公众号:简说基因:
     - 1.一个生信人的自白：从生物转生信，我的学习与工作经历: 1.aboutme.md
     - 2.重拾写作：从开始到放弃: 2.markdown.md
     - 3.生物信息基础：SSH应用，如何优雅地登录远程服务器？: 3.ssh.md
@@ -141,3 +141,4 @@ nav:
     - 10.病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
     - 11.病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
     - 12.Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例: 12.aspera.md
+  - 笔记: website.md
