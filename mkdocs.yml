@@ -8,8 +8,9 @@ site_description: >-
 # Repository
 repo_name: jianzuoyi.github.io
 repo_url: https://github.com/jianzuoyi/jianzuoyi.github.io/
-zhihu_url: https://www.zhihu.com/people/jianzuoyi
 edit_url:
+zhihu_url: https://www.zhihu.com/people/jianzuoyi
+ncbi_url: https://www.ncbi.nlm.nih.gov/
 
 # Copyright
 copyright: Copyright &copy; 2019 - 2020 Zuoyi Jian
@@ -141,5 +142,6 @@ nav:
     - 10.病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
     - 11.病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
     - 12.Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例: 12.aspera.md
-  - 笔记: 
-    - NOTE: note.md
+  - 笔记本:
+    - ubuntu 16.04系统上安装SGE: notebook/install-sge-ubuntu.md
+    - 笔记: notebook/note.md
