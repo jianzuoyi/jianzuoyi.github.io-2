@@ -48,17 +48,3 @@ export SGE_ROOT=/var/lib/gridengine
 
 ```
 
-
-
-SGE错误：
-error: commlib error: access denied (client IP resolved to host name "". This is not identical to cl
-
-解决方法：
-```bash
-ifconfig
-# 查看本机内网IP地址
-
-vi /etc/hosts
-# 增加以下一行
-# 172.19.247.XXX  galaxy  galaxy
-```
