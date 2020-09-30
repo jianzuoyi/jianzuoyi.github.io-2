@@ -16,10 +16,6 @@ apt install zlib1g-dev
 apt install libbz2-dev
 ```
 
-## 安装生信软件
-```bash
-apt install bwa
-```
 
 ## 安装SJM
 Installing SJM requires the following prerequisites:
@@ -44,6 +40,7 @@ apt install libboost-regex-dev
 apt install gridengine-drmaa-dev
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gridengine-drmaa/lib
+export SGE_ROOT=/var/lib/gridengine
 
 ./sjm
 
@@ -53,4 +50,15 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/gridengine-drmaa/lib
 
 
 
+SGE错误：
+error: commlib error: access denied (client IP resolved to host name "". This is not identical to cl
 
+解决方法：
+```bash
+ifconfig
+# 查看本机内网IP地址
+
+vi /etc/hosts
+# 增加以下一行
+# 172.19.247.XXX  galaxy  galaxy
+```
