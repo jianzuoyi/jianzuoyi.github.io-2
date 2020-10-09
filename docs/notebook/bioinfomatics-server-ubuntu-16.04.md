@@ -263,3 +263,16 @@ vi /etc/hosts
 # 增加以下一行，类似的其余行删掉
 # 172.19.247.XXX  galaxy  galaxy
 ```
+
+
+
+## 安装R
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+sudo apt-get update
+sudo apt-get install r-base
+
+```
+**参考**
+https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2
