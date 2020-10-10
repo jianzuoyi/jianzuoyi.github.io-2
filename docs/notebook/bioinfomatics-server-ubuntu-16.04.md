@@ -8,6 +8,16 @@ iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 
 此时，访问http://ip 和http://ip:8080是一样的。
 
+## Linux命令行获取本机外网IP地址
+```bash
+curl ip.sb
+curl cip.cc
+curl ifconfig.me
+curl icanhazip.com
+curl ident.me
+curl ipecho.net/plain 
+```
+
 ## 安装库
 ```bash
 apt install zlib1g-dev
@@ -276,3 +286,4 @@ sudo apt-get install r-base
 ```
 **参考**
 https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2
+
