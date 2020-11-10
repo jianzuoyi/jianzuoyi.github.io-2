@@ -1,4 +1,4 @@
-site_name: 简佐义的官方网站
+site_name: 简说基因
 site_url: https://jianzuoyi.github.io/
 site_author: Zuoyi Jian
 site_description: >-
@@ -129,7 +129,8 @@ google_analytics:
 # Page tree
 nav:
   - 主页: index.md
-  - 公众号:简说基因:
+  - 日志:
+    - 2020-11-10 学生信难吗？我给读者的回信: 2020-11-10.letter-to-reader-bioinfo.md
     - 1.一个生信人的自白：从生物转生信，我的学习与工作经历: 1.aboutme.md
     - 2.重拾写作：从开始到放弃: 2.markdown.md
     - 3.生物信息基础：SSH应用，如何优雅地登录远程服务器？: 3.ssh.md
