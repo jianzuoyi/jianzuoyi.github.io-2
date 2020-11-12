@@ -130,6 +130,7 @@ google_analytics:
 nav:
   - 主页: index.md
   - 日志:
+    - 2020-11-12 《基因大数据智能生产及分析》笔记: 2020-11-12-gene-bigdata-jiyinhui.md
     - 2020-11-10 学生信难吗？我给读者的回信: 2020-11-10.letter-to-reader-bioinfo.md
     - 1.一个生信人的自白：从生物转生信，我的学习与工作经历: 1.aboutme.md
     - 2.重拾写作：从开始到放弃: 2.markdown.md
