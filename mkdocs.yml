@@ -130,6 +130,8 @@ google_analytics:
 nav:
   - 主页: index.md
   - 日志:
+    - 2020-11-14 在线学习的十条规则: 2020-11-14-online-learning.md
+    - 2020-11-13 生物信息学：全景: 2020-11-13-bioinfo-full-view.md
     - 2020-11-12 谈一谈如何实现一个小目标: 2020-11-13-think-like-company.md
     - 2020-11-12 《基因大数据智能生产及分析》笔记: 2020-11-12-gene-bigdata-jiyinhui.md
     - 2020-11-10 学生信难吗？我给读者的回信: 2020-11-10.letter-to-reader-bioinfo.md
