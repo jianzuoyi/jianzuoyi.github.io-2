@@ -151,9 +151,7 @@ nav:
     - 11.病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
     - 12.Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例: 12.aspera.md
   - Linux教程:
-    - Linux教程: tutorial/tutorial-linux.md
-  - Python教程:
-    - Python教程: tutorial/tutorial-python.md
+    - Linux命令速查手册: tutorial/tutorial-linux.md
   - Conda教程:
     - Conda教程: tutorial/tutorial-conda.md
   - Git教程:
