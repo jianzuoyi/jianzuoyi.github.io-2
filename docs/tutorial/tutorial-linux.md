@@ -705,7 +705,7 @@ md5sum			# 生成，或验证文件的MD5值
 
 
 
-
+<!--
 
 [生物信息学：全景](https://mp.weixin.qq.com/s?__biz=MzIxMjQxMDYxNA==&mid=2247484022&idx=1&sn=fbb43c52e02f3742e796e882619caaac&chksm=9747cbefa03042f9997604871242acf1cb8d0cc2dc5a973891abf0e91adbbca97621980335ac&token=2121101688&lang=zh_CN#rd)
 
@@ -724,3 +724,5 @@ md5sum			# 生成，或验证文件的MD5值
 [病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制](https://mp.weixin.qq.com/s?__biz=MzIxMjQxMDYxNA==&mid=2247483897&idx=1&sn=d4db2ad66feedbbea6587f0023d5c4a0&chksm=9747c860a0304176ca0197a17ad0fb3c523ecba781ef56248eb66080cfcf811f1586197b7b24&token=2121101688&lang=zh_CN#rd)
 
 [病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成](https://mp.weixin.qq.com/s?__biz=MzIxMjQxMDYxNA==&mid=2247483963&idx=1&sn=44624ae37cb5cd8f9a87d580de090a78&chksm=9747cba2a03042b4f2d31c38f75bd0f0d1690ac2cb91ba5e1fd21235f4bcfc745edfe5ddb0ec&token=2121101688&lang=zh_CN#rd)
+
+-->
