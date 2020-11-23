@@ -151,6 +151,8 @@ nav:
     - 10.病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
     - 11.病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
     - 12.Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例: 12.aspera.md
+  - 自学生信:
+    - 如何自学生物信息学：从菜鸟到专家: 2020-11-23-learn-bioinfomatics.md
   - Linux教程:
     - Linux命令速查手册: tutorial/tutorial-linux.md
   - Conda教程:
