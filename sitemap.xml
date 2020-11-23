@@ -1,103 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://jianzuoyi.github.io/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-20-base-pair-unit/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-17-pysam/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-16-local-ncbi-db/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-14-bioinfo-competition/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-14-online-learning/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-13-bioinfo-full-view/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-13-think-like-company/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-12-gene-bigdata-jiyinhui/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2020-11-10.letter-to-reader-bioinfo/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/1.aboutme/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/2.markdown/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/3.ssh/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/4.houlang/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/5.chuxin/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/6.best-bioinfo-env-mac/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/7.best-bioinfo-env-win/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/8.ngs-and-micro/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/9.microbe-bcl2fastq/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/10.microbe-fastp/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/11.microbe-vsearch/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/12.aspera/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jianzuoyi.github.io/2020-11-23-learn-bioinfomatics/</loc>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/tutorial/tutorial-linux/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/tutorial/tutorial-conda/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jianzuoyi.github.io/tutorial/tutorial-git/</loc>
-     <lastmod>2020-11-20</lastmod>
+     <lastmod>2020-11-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
