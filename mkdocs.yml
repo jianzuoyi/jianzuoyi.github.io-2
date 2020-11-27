@@ -130,6 +130,10 @@ google_analytics:
 nav:
   - 主页: index.md
   - 日志:
+    - 2020-07-16 一个生信人的自白：从生物转生信，我的学习与工作经历: 1.aboutme.md
+    - 2020-07-17 重拾写作：从开始到放弃: 2.markdown.md
+  - 自学生信:
+    - 2020-11-23 如何自学生物信息学：从菜鸟到专家: 2020-11-23-learn-bioinfomatics.md
     - 2020-11-20 为什么说生物信息学是真正的大数据行业？: 2020-11-20-base-pair-unit.md
     - 2020-11-17 生物信息基础：基因组文件读写（pysam）: 2020-11-17-pysam.md
     - 2020-11-16 一文搞懂NCBI Blast本地数据库（NT/NR等）构建: 2020-11-16-local-ncbi-db.md
@@ -140,22 +144,20 @@ nav:
     - 2020-11-12 《基因大数据智能生产及分析》笔记: 2020-11-12-gene-bigdata-jiyinhui.md
     - 2020-11-10 学生信难吗？我给读者的回信: 2020-11-10.letter-to-reader-bioinfo.md
     - 2020-09-15 Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例: 12.aspera.md
-    - 2020-09-14 病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
-    - 2020-09-05 病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
-    - 2020-09-03 病原微生物扩增子数据分析实战（一）：bcl2fastq软件完成数据拆分: 9.microbe-bcl2fastq.md
-    - 2020-09-02（一）概述：NGS测序在病原微生物检测中的应用: 8.ngs-and-micro.md
     - 2020-09-01 强烈推荐Windows平台下生信环境搭配：Windows Terminal + WSL: 7.best-bioinfo-env-win.md
     - 2020-07-21 最佳生物信息工作环境: 6.best-bioinfo-env-mac.md
     - 2020-07-20 教学相长：愿我们都不忘初心，有始有终: 5.chuxin.md
     - 2020-07-19 奔涌吧，生信: 4.houlang.md
     - 2020-07-18 生物信息基础：SSH应用，如何优雅地登录远程服务器？: 3.ssh.md
-    - 2020-07-17 重拾写作：从开始到放弃: 2.markdown.md
-    - 2020-07-16 一个生信人的自白：从生物转生信，我的学习与工作经历: 1.aboutme.md
-  - 自学生信:
-    - 如何自学生物信息学：从菜鸟到专家: 2020-11-23-learn-bioinfomatics.md
   - Linux教程:
-    - Linux命令速查手册: tutorial/tutorial-linux.md
+    - 2020-11-20 Linux命令速查手册: tutorial/tutorial-linux.md
   - Conda教程:
-    - Conda教程: tutorial/tutorial-conda.md
+    - 2020-11-17 Conda教程: tutorial/tutorial-conda.md
   - Git教程:
-    - Git教程: tutorial/tutorial-git.md
+    - 2020-11-09 Git教程: tutorial/tutorial-git.md
+  - 微生物专题:
+    - 2020-11-27 从零开始学PCR技术（一）：PCR技术简介: 2020-11-27-PCR-1-introduction.md
+    - 2020-09-14 病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
+    - 2020-09-05 病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
+    - 2020-09-03 病原微生物扩增子数据分析实战（一）：bcl2fastq软件完成数据拆分: 9.microbe-bcl2fastq.md
+    - 2020-09-02（一）概述：NGS测序在病原微生物检测中的应用: 8.ngs-and-micro.md
