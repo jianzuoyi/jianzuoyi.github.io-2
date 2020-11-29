@@ -156,7 +156,9 @@ nav:
   - Git教程:
     - 2020-11-09 Git教程: tutorial/tutorial-git.md
   - 微生物专题:
+    - 2020-11-29 从零开始学PCR技术（二）：Taq DNA酶: 2020-11-29-PCR-2-taq_dna.md
     - 2020-11-27 从零开始学PCR技术（一）：PCR技术简介: 2020-11-27-PCR-1-introduction.md
+    - 2020-11-29 从零开始学PCR技术（零）：PCR技术科普: 2020-11-29-PCR-0-kepu.md
     - 2020-09-14 病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成: 11.microbe-vsearch.md
     - 2020-09-05 病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制: 10.microbe-fastp.md
     - 2020-09-03 病原微生物扩增子数据分析实战（一）：bcl2fastq软件完成数据拆分: 9.microbe-bcl2fastq.md
