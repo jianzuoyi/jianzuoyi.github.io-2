@@ -2,7 +2,7 @@ site_name: 简说基因
 site_url: https://jianzuoyi.github.io/
 site_author: Zuoyi Jian
 site_description: >-
-    肿瘤基因检测/病原微生物基因检测/无创产前诊断。
+    肿瘤/病原微生物/无创产前诊断。
 
 
 # Repository
@@ -156,6 +156,7 @@ nav:
   - Git教程:
     - 2020-11-09 Git教程: tutorial/tutorial-git.md
   - 微生物专题:
+    - 2020-11-30 从零开始学PCR技术（三）：PCR引物设计: 2020-11-30-PCR-3-primer-design.md
     - 2020-11-29 从零开始学PCR技术（二）：Taq DNA酶: 2020-11-29-PCR-2-taq_dna.md
     - 2020-11-27 从零开始学PCR技术（一）：PCR技术简介: 2020-11-27-PCR-1-introduction.md
     - 2020-11-29 从零开始学PCR技术（零）：PCR技术科普: 2020-11-29-PCR-0-kepu.md
