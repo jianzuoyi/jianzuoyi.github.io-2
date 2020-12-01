@@ -110,7 +110,7 @@ R，其定位是一个综合的统计绘图软件，不是一门编程语言，�
 
 [生物信息基础：conda包管理器安装和使用](https://zhuanlan.zhihu.com/p/297961991)
 
-[代码版本控制及托管：我的最佳实践](https://zhuanlan.zhihu.com/p/281550222)
+[生物信息基础：实用Git命令，掌握这些就够了](https://zhuanlan.zhihu.com/p/315422417)
 
 ### 3. 成为工程师
 
@@ -307,9 +307,15 @@ C/C++，Java，至少学一样。行业优秀软件如BWA，Samtools等，是C/C
 
 > 标题：如何自学生物信息学：从菜鸟到专家
 >
-> 版本：1.0	日期：2020-11-23
+> 版本：
+>
+> 1.0	日期：2020-11-23
+>
+> 1.1    日期：2020-12-01
 
-生信系列文章永久地址：[https://jianzuoyi.github.io/](https://jianzuoyi.github.io/)
+觉得内容不错，请点赞、评论或分享给需要的朋友！
 
-如果你也喜欢生物信息学，欢迎关注公众号：**简说基因，让一部分人先懂生信。**
+[如果你热爱生物信息学，欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，或公众号：简说基因
+
+博客地址：[https://jianzuoyi.github.io/](https://link.zhihu.com/?target=https%3A//jianzuoyi.github.io/)，在这里从零开始学习生信
 
