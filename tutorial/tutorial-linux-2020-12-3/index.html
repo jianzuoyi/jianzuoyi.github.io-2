@@ -1,0 +1,374 @@
+<!doctype html><html lang=zh class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=肿瘤/病原微生物/无创产前诊断。><link href=https://jianzuoyi.github.io/tutorial/tutorial-linux-2020-12-3/ rel=canonical><meta name=author content="Zuoyi Jian"><link rel="shortcut icon" href=../../assets/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-5.5.14"><title>简哥的Linux私房菜：生信篇 - 简说基因</title><link rel=stylesheet href=../../assets/stylesheets/main.593e13b9.min.css><link rel=stylesheet href=../../assets/stylesheets/palette.ff0a5ce4.min.css><meta name=theme-color content=#4051b5><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#linux class=md-skip> 跳转至 </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid" aria-label=Header> <a href=https://jianzuoyi.github.io/ title=简说基因 class="md-header-nav__button md-logo" aria-label=简说基因> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path fill-opacity=.5 d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path fill-opacity=.25 d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z"/></svg> </a> <label class="md-header-nav__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header-nav__title data-md-component=header-title> <div class=md-header-nav__ellipsis> <span class="md-header-nav__topic md-ellipsis"> 简说基因 </span> <span class="md-header-nav__topic md-ellipsis"> 简哥的Linux私房菜：生信篇 </span> </div> </div> <label class="md-header-nav__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=搜索 placeholder=搜索 autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear data-md-component=search-reset tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header-nav__source> <a href=https://github.com/jianzuoyi/jianzuoyi.github.io/ title="前往 GitHub 仓库" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg> </div> <div class=md-source__repository> jianzuoyi.github.io </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../.. class="md-tabs__link md-tabs__link--active"> 主页 </a> </li> <li class=md-tabs__item> <a href=../../1.aboutme/ class=md-tabs__link> 日志 </a> </li> <li class=md-tabs__item> <a href=../../2020-11-23-learn-bioinfomatics/ class=md-tabs__link> 自学生信 </a> </li> <li class=md-tabs__item> <a href=../tutorial-linux/ class=md-tabs__link> Linux教程 </a> </li> <li class=md-tabs__item> <a href=../tutorial-conda/ class=md-tabs__link> Conda教程 </a> </li> <li class=md-tabs__item> <a href=../tutorial-git/ class=md-tabs__link> Git教程 </a> </li> <li class=md-tabs__item> <a href=../../2020-12-04-rosalind/ class=md-tabs__link> Rosalind </a> </li> <li class=md-tabs__item> <a href=../../2020-12-02-PCR-5-pollution/ class=md-tabs__link> 微生物专题 </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=https://jianzuoyi.github.io/ title=简说基因 class="md-nav__button md-logo" aria-label=简说基因> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path fill-opacity=.5 d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path fill-opacity=.25 d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z"/></svg> </a> 简说基因 </label> <div class=md-nav__source> <a href=https://github.com/jianzuoyi/jianzuoyi.github.io/ title="前往 GitHub 仓库" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg> </div> <div class=md-source__repository> jianzuoyi.github.io </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. title=主页 class=md-nav__link> 主页 </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-2 type=checkbox id=nav-2> <label class=md-nav__link for=nav-2> 日志 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=日志 data-md-level=1> <label class=md-nav__title for=nav-2> <span class="md-nav__icon md-icon"></span> 日志 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../1.aboutme/ title="2020-07-16 一个生信人的自白：从生物转生信，我的学习与工作经历" class=md-nav__link> 2020-07-16 一个生信人的自白：从生物转生信，我的学习与工作经历 </a> </li> <li class=md-nav__item> <a href=../../2.markdown/ title="2020-07-17 重拾写作：从开始到放弃" class=md-nav__link> 2020-07-17 重拾写作：从开始到放弃 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-3 type=checkbox id=nav-3> <label class=md-nav__link for=nav-3> 自学生信 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=自学生信 data-md-level=1> <label class=md-nav__title for=nav-3> <span class="md-nav__icon md-icon"></span> 自学生信 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../2020-11-23-learn-bioinfomatics/ title="2020-11-23 如何自学生物信息学：从菜鸟到专家" class=md-nav__link> 2020-11-23 如何自学生物信息学：从菜鸟到专家 </a> </li> <li class=md-nav__item> <a href=../../2020-11-20-base-pair-unit/ title="2020-11-20 为什么说生物信息学是真正的大数据行业？" class=md-nav__link> 2020-11-20 为什么说生物信息学是真正的大数据行业？ </a> </li> <li class=md-nav__item> <a href=../../2020-11-17-pysam/ title="2020-11-17 生物信息基础：基因组文件读写（pysam）" class=md-nav__link> 2020-11-17 生物信息基础：基因组文件读写（pysam） </a> </li> <li class=md-nav__item> <a href=../../2020-11-16-local-ncbi-db/ title="2020-11-16 一文搞懂NCBI Blast本地数据库（NT/NR等）构建" class=md-nav__link> 2020-11-16 一文搞懂NCBI Blast本地数据库（NT/NR等）构建 </a> </li> <li class=md-nav__item> <a href=../../2020-11-14-bioinfo-competition/ title="2020-11-14 生物信息学中重要的评估竞赛" class=md-nav__link> 2020-11-14 生物信息学中重要的评估竞赛 </a> </li> <li class=md-nav__item> <a href=../../2020-11-14-online-learning/ title="2020-11-14 在线学习的十条规则" class=md-nav__link> 2020-11-14 在线学习的十条规则 </a> </li> <li class=md-nav__item> <a href=../../2020-11-13-bioinfo-full-view/ title="2020-11-13 生物信息学：全景" class=md-nav__link> 2020-11-13 生物信息学：全景 </a> </li> <li class=md-nav__item> <a href=../../2020-11-13-think-like-company/ title="2020-11-12 谈一谈如何实现一个小目标" class=md-nav__link> 2020-11-12 谈一谈如何实现一个小目标 </a> </li> <li class=md-nav__item> <a href=../../2020-11-12-gene-bigdata-jiyinhui/ title="2020-11-12 《基因大数据智能生产及分析》笔记" class=md-nav__link> 2020-11-12 《基因大数据智能生产及分析》笔记 </a> </li> <li class=md-nav__item> <a href=../../2020-11-10.letter-to-reader-bioinfo/ title="2020-11-10 学生信难吗？我给读者的回信" class=md-nav__link> 2020-11-10 学生信难吗？我给读者的回信 </a> </li> <li class=md-nav__item> <a href=../../12.aspera/ title="2020-09-15 Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例" class=md-nav__link> 2020-09-15 Aspera：基因组数据高速下载利器，以NCBI和EBI数据下载为例 </a> </li> <li class=md-nav__item> <a href=../../7.best-bioinfo-env-win/ title="2020-09-01 强烈推荐Windows平台下生信环境搭配：Windows Terminal + WSL" class=md-nav__link> 2020-09-01 强烈推荐Windows平台下生信环境搭配：Windows Terminal + WSL </a> </li> <li class=md-nav__item> <a href=../../6.best-bioinfo-env-mac/ title="2020-07-21 最佳生物信息工作环境" class=md-nav__link> 2020-07-21 最佳生物信息工作环境 </a> </li> <li class=md-nav__item> <a href=../../5.chuxin/ title="2020-07-20 教学相长：愿我们都不忘初心，有始有终" class=md-nav__link> 2020-07-20 教学相长：愿我们都不忘初心，有始有终 </a> </li> <li class=md-nav__item> <a href=../../4.houlang/ title="2020-07-19 奔涌吧，生信" class=md-nav__link> 2020-07-19 奔涌吧，生信 </a> </li> <li class=md-nav__item> <a href=../../3.ssh/ title="2020-07-18 生物信息基础：SSH应用，如何优雅地登录远程服务器？" class=md-nav__link> 2020-07-18 生物信息基础：SSH应用，如何优雅地登录远程服务器？ </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-4 type=checkbox id=nav-4> <label class=md-nav__link for=nav-4> Linux教程 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Linux教程 data-md-level=1> <label class=md-nav__title for=nav-4> <span class="md-nav__icon md-icon"></span> Linux教程 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../tutorial-linux/ title="2020-11-20 Linux命令速查手册" class=md-nav__link> 2020-11-20 Linux命令速查手册 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-5 type=checkbox id=nav-5> <label class=md-nav__link for=nav-5> Conda教程 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Conda教程 data-md-level=1> <label class=md-nav__title for=nav-5> <span class="md-nav__icon md-icon"></span> Conda教程 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../tutorial-conda/ title="2020-11-17 Conda教程" class=md-nav__link> 2020-11-17 Conda教程 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-6 type=checkbox id=nav-6> <label class=md-nav__link for=nav-6> Git教程 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Git教程 data-md-level=1> <label class=md-nav__title for=nav-6> <span class="md-nav__icon md-icon"></span> Git教程 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../tutorial-git/ title="2020-11-09 Git教程" class=md-nav__link> 2020-11-09 Git教程 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-7 type=checkbox id=nav-7> <label class=md-nav__link for=nav-7> Rosalind <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=Rosalind data-md-level=1> <label class=md-nav__title for=nav-7> <span class="md-nav__icon md-icon"></span> Rosalind </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../2020-12-04-rosalind/ title="2020-12-04 Rosalind:001 碱基统计" class=md-nav__link> 2020-12-04 Rosalind:001 碱基统计 </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" data-md-toggle=nav-8 type=checkbox id=nav-8> <label class=md-nav__link for=nav-8> 微生物专题 <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav aria-label=微生物专题 data-md-level=1> <label class=md-nav__title for=nav-8> <span class="md-nav__icon md-icon"></span> 微生物专题 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../2020-12-02-PCR-5-pollution/ title="2020-12-01 从零开始学PCR技术（五）：试验污染" class=md-nav__link> 2020-12-01 从零开始学PCR技术（五）：试验污染 </a> </li> <li class=md-nav__item> <a href=../../2020-12-01-PCR-4-question/ title="2020-12-01 从零开始学PCR技术（四）：常见问题" class=md-nav__link> 2020-12-01 从零开始学PCR技术（四）：常见问题 </a> </li> <li class=md-nav__item> <a href=../../2020-11-30-PCR-3-primer-design/ title="2020-11-30 从零开始学PCR技术（三）：PCR引物设计" class=md-nav__link> 2020-11-30 从零开始学PCR技术（三）：PCR引物设计 </a> </li> <li class=md-nav__item> <a href=../../2020-11-29-PCR-2-taq_dna/ title="2020-11-29 从零开始学PCR技术（二）：Taq DNA酶" class=md-nav__link> 2020-11-29 从零开始学PCR技术（二）：Taq DNA酶 </a> </li> <li class=md-nav__item> <a href=../../2020-11-27-PCR-1-introduction/ title="2020-11-27 从零开始学PCR技术（一）：PCR技术简介" class=md-nav__link> 2020-11-27 从零开始学PCR技术（一）：PCR技术简介 </a> </li> <li class=md-nav__item> <a href=../../2020-11-29-PCR-0-kepu/ title="2020-11-29 从零开始学PCR技术（零）：PCR技术科普" class=md-nav__link> 2020-11-29 从零开始学PCR技术（零）：PCR技术科普 </a> </li> <li class=md-nav__item> <a href=../../11.microbe-vsearch/ title="2020-09-14 病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成" class=md-nav__link> 2020-09-14 病原微生物扩增子数据分析实战（三）：vsearch软件鉴定物种组成 </a> </li> <li class=md-nav__item> <a href=../../10.microbe-fastp/ title="2020-09-05 病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制" class=md-nav__link> 2020-09-05 病原微生物扩增子数据分析实战（二）：fastp软件进行质量控制 </a> </li> <li class=md-nav__item> <a href=../../9.microbe-bcl2fastq/ title="2020-09-03 病原微生物扩增子数据分析实战（一）：bcl2fastq软件完成数据拆分" class=md-nav__link> 2020-09-03 病原微生物扩增子数据分析实战（一）：bcl2fastq软件完成数据拆分 </a> </li> <li class=md-nav__item> <a href=../../8.ngs-and-micro/ title=2020-09-02（一）概述：NGS测序在病原微生物检测中的应用 class=md-nav__link> 2020-09-02（一）概述：NGS测序在病原微生物检测中的应用 </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label=目录> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> 目录 </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#_1 class=md-nav__link> 前言 </a> </li> <li class=md-nav__item> <a href=#_2 class=md-nav__link> 说明 </a> </li> <li class=md-nav__item> <a href=#_3 class=md-nav__link> 建议 </a> </li> <li class=md-nav__item> <a href=#_4 class=md-nav__link> 版权声明 </a> </li> <li class=md-nav__item> <a href=#linux_1 class=md-nav__link> Linux基础 </a> <nav class=md-nav aria-label=Linux基础> <ul class=md-nav__list> <li class=md-nav__item> <a href=#1 class=md-nav__link> 1. 获得帮助 </a> <nav class=md-nav aria-label="1. 获得帮助"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#11 class=md-nav__link> 1.1 需要帮助 </a> </li> <li class=md-nav__item> <a href=#12 class=md-nav__link> 1.2 关于我 </a> </li> <li class=md-nav__item> <a href=#15 class=md-nav__link> 1.5 命令在哪儿 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#2 class=md-nav__link> 2. 文件目录 </a> <nav class=md-nav aria-label="2. 文件目录"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#21-ls class=md-nav__link> 2.1 显示目录 ls </a> </li> <li class=md-nav__item> <a href=#22-cd class=md-nav__link> 2.2 切换目录 cd </a> </li> <li class=md-nav__item> <a href=#23-cat class=md-nav__link> 2.3 查看文件 cat </a> </li> <li class=md-nav__item> <a href=#23-mkdir class=md-nav__link> 2.3 创建目录 mkdir </a> </li> <li class=md-nav__item> <a href=#24-cp-mv-rm class=md-nav__link> 2.4 复制/移动/删除 cp mv rm </a> </li> <li class=md-nav__item> <a href=#_5 class=md-nav__link> 打包压缩 </a> </li> <li class=md-nav__item> <a href=#25-find class=md-nav__link> 2.5 查找文件 find </a> <nav class=md-nav aria-label="2.5 查找文件 find"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#_6 class=md-nav__link> 定制搜索 </a> </li> <li class=md-nav__item> <a href=#_7 class=md-nav__link> 找到后执行动作 </a> </li> <li class=md-nav__item> <a href=#-print class=md-nav__link> -print的界定符 </a> </li> <li class=md-nav__item> <a href=#_8 class=md-nav__link> 快速查询 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#27-chmod class=md-nav__link> 2.7 权限修改 chmod </a> </li> <li class=md-nav__item> <a href=#28-ln class=md-nav__link> 2.8 创建链接文件 ln </a> </li> <li class=md-nav__item> <a href=#29 class=md-nav__link> 2.9 管道和重定向 </a> </li> <li class=md-nav__item> <a href=#210 class=md-nav__link> 2.10 环境变量 </a> </li> <li class=md-nav__item> <a href=#211-bash class=md-nav__link> 2.11 Bash快捷键 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#3 class=md-nav__link> 3. 文本处理 </a> <nav class=md-nav aria-label="3. 文本处理"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#31-grep class=md-nav__link> 3.1 文本搜索 grep </a> </li> <li class=md-nav__item> <a href=#32-sed class=md-nav__link> 3.2 文本编辑 sed </a> </li> <li class=md-nav__item> <a href=#33-awk class=md-nav__link> 3.3 文本处理 awk </a> </li> <li class=md-nav__item> <a href=#cat class=md-nav__link> 合并文本（按行） cat </a> </li> <li class=md-nav__item> <a href=#paste class=md-nav__link> 合并文本（按列） paste </a> </li> <li class=md-nav__item> <a href=#join class=md-nav__link> 合并文本（按列） join </a> </li> <li class=md-nav__item> <a href=#cut class=md-nav__link> 切分文本（按列）cut </a> </li> <li class=md-nav__item> <a href=#split class=md-nav__link> 分割文件 split </a> </li> <li class=md-nav__item> <a href=#sort class=md-nav__link> 排序 sort </a> </li> <li class=md-nav__item> <a href=#uniq class=md-nav__link> 去重 uniq </a> </li> <li class=md-nav__item> <a href=#wc class=md-nav__link> 统计文本 wc </a> </li> <li class=md-nav__item> <a href=#dos2unix class=md-nav__link> 格式转换 dos2unix </a> </li> <li class=md-nav__item> <a href=#43-watch class=md-nav__link> 4.3 watch </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#5 class=md-nav__link> 5. 进程管理 </a> <nav class=md-nav aria-label="5. 进程管理"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#51 class=md-nav__link> 5.1 查询进程 </a> </li> <li class=md-nav__item> <a href=#52 class=md-nav__link> 5.2 终止进程 </a> </li> <li class=md-nav__item> <a href=#53 class=md-nav__link> 5.3 远程任务 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#6 class=md-nav__link> 6. 性能监控 </a> </li> <li class=md-nav__item> <a href=#7 class=md-nav__link> 7. 网络工具 </a> </li> <li class=md-nav__item> <a href=#8 class=md-nav__link> 8. 用户管理 </a> <nav class=md-nav aria-label="8. 用户管理"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#81 class=md-nav__link> 8.1 用户 </a> </li> <li class=md-nav__item> <a href=#82 class=md-nav__link> 8.2 组 </a> </li> <li class=md-nav__item> <a href=#83 class=md-nav__link> 8.3 权限 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#9 class=md-nav__link> 9. 系统管理 </a> </li> <li class=md-nav__item> <a href=#10-bash class=md-nav__link> 10. Bash脚本模板 </a> <nav class=md-nav aria-label="10. Bash脚本模板"> <ul class=md-nav__list> <li class=md-nav__item> <a href=#101 class=md-nav__link> 10.1 迭代文件中的每一行 </a> </li> <li class=md-nav__item> <a href=#102 class=md-nav__link> 10.2 迭代一行中的每一个单词 </a> </li> <li class=md-nav__item> <a href=#103 class=md-nav__link> 10.3 迭代单词中的每一个字符 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#11_1 class=md-nav__link> 11.并行工具 </a> </li> <li class=md-nav__item> <a href=#_9 class=md-nav__link> 其他命令 </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#linux_2 class=md-nav__link> Linux工具进阶 </a> </li> <li class=md-nav__item> <a href=#_10 class=md-nav__link> 工具参考篇 </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a href=https://github.com/jianzuoyi/jianzuoyi.github.io/edit/master/docs/tutorial/tutorial-linux-2020-12-3.md title=编辑此页 class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1 id=linux>简哥的Linux私房菜：生信篇<a class=headerlink href=#linux title="Permanent link">&para;</a></h1> <h2 id=_1>前言<a class=headerlink href=#_1 title="Permanent link">&para;</a></h2> <p>Linux命令很多，但是对于生物信息学，常用的也就那么几十个。为此，我写了这本相对实用的小册子，以便读者能以最快的时间入门Linux。这本书应该做为生物信息学新人首先要掌握的第一门课程。</p> <h2 id=_2>说明<a class=headerlink href=#_2 title="Permanent link">&para;</a></h2> <p>全书分为三个部分：</p> <ul> <li>基础篇</li> <li>进阶篇</li> <li>工具参考篇</li> </ul> <h2 id=_3>建议<a class=headerlink href=#_3 title="Permanent link">&para;</a></h2> <ol> <li>最好安装一个Linux系统（对于新手Ubuntu容易入门），将教程中的命令敲到bash中看看效果</li> <li>如果有兴趣，可以在了解之后立即查看相关更完备的内容（比如查阅官方文档）</li> </ol> <h2 id=_4>版权声明<a class=headerlink href=#_4 title="Permanent link">&para;</a></h2> <blockquote> <p>本书为开源图书，版权归作者所有；欢迎下载及编辑（个人用途），但未经作者同意必须保留此段声明，且不可用于商业用途，否则保留追究法律责任的权利。</p> <ul> <li>作者：简佐义</li> <li>博客：<a href=https://jianzuoyi.github.io>https://jianzuoyi.github.io</a></li> <li>知乎：<a href=https://www.zhihu.com/people/jianzuoyi>https://www.zhihu.com/people/jianzuoyi</a></li> <li>公众号：简说基因</li> </ul> </blockquote> <h2 id=linux_1>Linux基础<a class=headerlink href=#linux_1 title="Permanent link">&para;</a></h2> <p>这一部分主要介绍Linux常用命令工具，比如文件管理、文本处理；为了让读者用最少的时间掌握到常用的知识，对于每个工具的举例，尽量做到小而精。</p> <h3 id=1>1. 获得帮助<a class=headerlink href=#1 title="Permanent link">&para;</a></h3> <p>在linux终端，面对命令不知道怎么用，或不记得命令的拼写及参数时，我们需要求助于系统的帮助文档； linux系统内置的帮助文档很详细，通常能解决我们的问题，我们需要掌握如何正确的去使用它们；</p> <h4 id=11>1.1 需要帮助<a class=headerlink href=#11 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>man <span class=nb>command</span>         <span class=c1># 查看命令command的说明文档</span>
+eg: man find
+</code></pre></div> <p>按<code>空格</code>向下翻页，按<code>b</code>向上翻页，按<code>q</code>退出。</p> <h4 id=12>1.2 关于我<a class=headerlink href=#12 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=nb>echo</span> hello world    <span class=c1># 大家好</span>
+whoami              <span class=c1># 我是谁</span>
+<span class=nb>pwd</span>                 <span class=c1># 我在哪儿</span>
+last                <span class=c1># 我什么时候登录过</span>
+<span class=nb>history</span>             <span class=c1># 我用过什么命令</span>
+w                   <span class=c1># 我都和谁同时在线</span>
+<span class=nb>exit</span>                <span class=c1># 我要退出登录</span>
+</code></pre></div> <h4 id=15>1.5 命令在哪儿<a class=headerlink href=#15 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>which <span class=nb>command</span>       <span class=c1># 查看程序可执行文件所在路径</span>
+eg: which find
+/usr/bin/find
+</code></pre></div> <h3 id=2>2. 文件目录<a class=headerlink href=#2 title="Permanent link">&para;</a></h3> <p>文件管理不外乎文件或目录的创建、删除、查询、移动，有mkdir/rm/mv</p> <p>文件查询是重点，用find来进行查询；find的参数丰富，也非常强大；</p> <p>查看文件内容是个大的话题，文本的处理有太多的工具供我们使用，在本章中只是点到即止，后面会有专门的一章来介绍文本的处理工具；</p> <p>有时候，需要给文件创建一个别名，我们需要用到ln，使用这个别名和使用原文件是相同的效果；</p> <h4 id=21-ls>2.1 显示目录 ls<a class=headerlink href=#21-ls title="Permanent link">&para;</a></h4> <p>显示当前目录下的文件或目录：</p> <div class=highlight><pre><span></span><code>ls                      <span class=c1># 显示目录内容</span>
+ls -l                   <span class=c1># 以列表显示形式显示目录内容</span>
+ll -h                   <span class=c1># 以人类可读的方式显示文件大小</span>
+ll -t                   <span class=c1># 以文件的修改时间排序，最新修改的在最前面</span>
+ll -tr                  <span class=c1># 以文件的修改时间排序，最新修改的在最后面</span>
+ls <span class=p>|</span> cat -n             <span class=c1># 给每项文件前面增加一个id编号</span>
+ls <span class=sb>`</span><span class=nb>pwd</span><span class=sb>`</span>/file           <span class=c1># 显示文件的绝对路径</span>
+</code></pre></div> <p><code>ls -l</code>如此常用，以至于我们需要为它建立一个别名，并放在<code>~/.bashrc</code>文件中，以后就可以直接使用别名<code>ll</code>了，更方便：</p> <div class=highlight><pre><span></span><code><span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -l&#39;</span>
+</code></pre></div> <p>显示目录树：</p> <div class=highlight><pre><span></span><code>tree                    <span class=c1># 以树状形式显示当前目录的结构</span>
+</code></pre></div> <h4 id=22-cd>2.2 切换目录 cd<a class=headerlink href=#22-cd title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=nb>cd</span> dir    <span class=c1># 切换到目录dir</span>
+<span class=nb>cd</span>        <span class=c1># 切换到用户的HOME目录</span>
+<span class=nb>cd</span> ~      <span class=c1># 同cd，~表示HOME目录</span>
+<span class=nb>cd</span> ..     <span class=c1># 切换到上一级目录；一个点.表示当前目录，两个点..表示上一级目录</span>
+<span class=nb>cd</span> -      <span class=c1># 切换到进入当前目录之前所在的目录</span>
+</code></pre></div> <h4 id=23-cat>2.3 查看文件 cat<a class=headerlink href=#23-cat title="Permanent link">&para;</a></h4> <p>查看文件内容：cat、head、tail、less</p> <div class=highlight><pre><span></span><code><span class=c1># 一次性把文件内容输出到屏幕</span>
+cat file        <span class=c1># 查看文件内容</span>
+cat -n file     <span class=c1># 查看文件内容，同时显示行号</span>
+cat -A file     <span class=c1># 显示文件TAB键、换行符等信息</span>
+
+<span class=c1># 分屏显示文件内容</span>
+less file       <span class=c1># 分屏显示文件内容，按空格键显示下一页，按下/后可以搜索内容</span>
+less -SN file   <span class=c1># 显示文件的行号，并且截断太长的行 </span>
+
+<span class=c1># 查看文件前面多少行</span>
+head file       <span class=c1># 默认显示文件前10行</span>
+head -n <span class=m>20</span> file <span class=c1># 显示文件前20行</span>
+
+<span class=c1># 查看文件后面多少行</span>
+tail file       <span class=c1># 默认显示文件后10行</span>
+tail -n <span class=m>20</span> file <span class=c1># 显示文件后20行</span>
+tail -n +2 file <span class=c1># 跳过第1行，显示从第2行开始的所有行，可用于跳过文件的标题行</span>
+tail -f file    <span class=c1># 当文件的内容还在增加时，实时显示末尾增加的内容，常用于查看日志文件的更新情况</span>
+</code></pre></div> <p>查看两个文件之间的差别：</p> <div class=highlight><pre><span></span><code>diff file1 file2
+</code></pre></div> <h4 id=23-mkdir>2.3 创建目录 mkdir<a class=headerlink href=#23-mkdir title="Permanent link">&para;</a></h4> <p>创建目录：</p> <div class=highlight><pre><span></span><code>mkdir dir           <span class=c1># 创建dir目录</span>
+mkdir -p dir1/dir2  <span class=c1># 递归创建目录，如dir1不存在，会先创建dir1</span>
+</code></pre></div> <p>创建空文件：</p> <div class=highlight><pre><span></span><code>touch file                  <span class=c1># 创建一个空文件</span>
+touch <span class=o>{</span>file1,file2,file3<span class=o>}</span>   <span class=c1># 同时创建3个文件</span>
+</code></pre></div> <h4 id=24-cp-mv-rm>2.4 复制/移动/删除 cp mv rm<a class=headerlink href=#24-cp-mv-rm title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>scp file1 file2         <span class=c1># 将file1复制一份，命名为file2，复制目录要加-r参数：scp -r</span>
+scp -r from_dir to_dir  <span class=c1># 复制目录，要加-r参数</span>
+mv file1 dir1/          <span class=c1># 将file1移动到dir1/目录下</span>
+mv file1 file2          <span class=c1># 重命名：即将file1移动成为file2</span>
+rm file                 <span class=c1># 删除文件</span>
+rm -f file              <span class=c1># 文件若不存在，删除时会报错，加-f参数就不会报错</span>
+rm -r dir1              <span class=c1># 删除目录，要加-r参数</span>
+rm -rf dir1             <span class=c1># 删除非空目录</span>
+</code></pre></div> <h4 id=_5>打包压缩<a class=headerlink href=#_5 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=c1># 平时tar基本上就能完成打包、压缩、解压的任务了</span>
+tar czvf file.tar.gz files  <span class=c1># 打包并压缩</span>
+tar xvf file.tar.gz         <span class=c1># 解包，解压缩</span>
+
+gzip file                   <span class=c1># 压缩</span>
+gunzip file.gz              <span class=c1># 解压</span>
+</code></pre></div> <p>用tar实现文件夹同步，排除部分文件不同步：</p> <div class=highlight><pre><span></span><code>tar --exclude <span class=s1>&#39;*.fq.gz&#39;</span> -cvf - /path/to/source <span class=p>|</span> <span class=o>(</span><span class=nb>cd</span> /path/to/target<span class=p>;</span> tar xvf -<span class=o>)</span>
+</code></pre></div> <h4 id=25-find>2.5 查找文件 find<a class=headerlink href=#25-find title="Permanent link">&para;</a></h4> <p>查找文件或目录：</p> <div class=highlight><pre><span></span><code>find dir -name file         <span class=c1># 在dir/目录下查找名为file的文件，dir可以省略，默认在当前目录下查找</span>
+find dir -name <span class=s1>&#39;*file*&#39;</span>     <span class=c1># 在dir/目录下查找包含file关键词的文件，-name参数支持正则表达式</span>
+</code></pre></div> <h5 id=_6>定制搜索<a class=headerlink href=#_6 title="Permanent link">&para;</a></h5> <ul> <li>按类型搜索</li> <li>-type参数：f 文件；d 目录；l 符号链接</li> </ul> <div class=highlight><pre><span></span><code>find dir -type f -name file         <span class=c1># 在当前目录下查找文件</span>
+find dir -type d -name dir          <span class=c1># 在当前目录下查找目录</span>
+</code></pre></div> <ul> <li>按时间搜索</li> <li>-atime 访问时间 (单位是天，分钟单位则是-amin，以下类似）</li> <li>-mtime 修改时间 （内容被修改）</li> <li>-ctime 变化时间 （元数据或权限变化）</li> </ul> <div class=highlight><pre><span></span><code>find . -atime <span class=m>7</span> -type f     <span class=c1># 最近第7天被访问过的所有文件</span>
+find . -atime -7 -type f    <span class=c1># 最近7天内被访问过的所有文件</span>
+find . -atime +7 -type f    <span class=c1># 查询7天前被访问过的所有文件</span>
+</code></pre></div> <ul> <li>按大小搜索</li> <li>大小单位：k M G</li> </ul> <div class=highlight><pre><span></span><code>find . -type f -size +2k
+</code></pre></div> <ul> <li>按权限搜索</li> </ul> <div class=highlight><pre><span></span><code>find . -type f -perm <span class=m>644</span>    <span class=c1># 找具有可执行权限的所有文件</span>
+</code></pre></div> <ul> <li>按用户搜索</li> </ul> <div class=highlight><pre><span></span><code>find . -type f -user weber  <span class=c1># 找用户weber所拥有的文件</span>
+</code></pre></div> <h5 id=_7>找到后执行动作<a class=headerlink href=#_7 title="Permanent link">&para;</a></h5> <ul> <li>删除</li> </ul> <div class=highlight><pre><span></span><code>find dir -name file -delete     <span class=c1># 查找文件并删除</span>
+find dir -name file <span class=p>|</span> xargs rm  <span class=c1># 同上</span>
+</code></pre></div> <ul> <li>执行动作</li> </ul> <div class=highlight><pre><span></span><code>find -type f -exec rm <span class=o>{}</span> <span class=se>\;</span>     <span class=c1># 查找文件并删除</span>
+find -type f -exec cp <span class=o>{}</span> dir <span class=se>\;</span> <span class=c1># 查找文件并拷贝到某个文件夹</span>
+</code></pre></div> <p>{}是一个特殊的字符串，对于每一个匹配的文件，{}会被替换成相应的文件名。</p> <ul> <li>结合多个命令</li> </ul> <p>如果需要后续执行多个命令，可以将多个命令写成一个脚本。然后 -exec 调用时执行脚本即可:</p> <div class=highlight><pre><span></span><code>-exec ./command.sh <span class=o>{}</span> <span class=se>\;</span>
+</code></pre></div> <h5 id=-print>-print的界定符<a class=headerlink href=#-print title="Permanent link">&para;</a></h5> <p>默认使用'\n'作为文件的界定符；</p> <p>-print0使用'\0'作为文件的界定符，这样就可以搜索包含空格的文件；</p> <h5 id=_8>快速查询<a class=headerlink href=#_8 title="Permanent link">&para;</a></h5> <div class=highlight><pre><span></span><code>locate file
+</code></pre></div> <p>与<code>find</code>不同，<code>locate</code>并不是实时查找，而是根据数据库中的文件索引信息。因此需要更新数据库，获得最新的文件索引信息：</p> <div class=highlight><pre><span></span><code>updatedb
+</code></pre></div> <h4 id=27-chmod>2.7 权限修改 chmod<a class=headerlink href=#27-chmod title="Permanent link">&para;</a></h4> <p>改变文件读、写、执行等属性：</p> <div class=highlight><pre><span></span><code>chmod +x file   <span class=c1># 增加[本人]可执行权限</span>
+chmod -x file   <span class=c1># 取消[本人]可执行权限</span>
+chmod a+x file  <span class=c1># 增加[所有人]可执行权限</span>
+chmod a-x file  <span class=c1># 取消[所有人]可执行权限</span>
+</code></pre></div> <p>改变文件的拥有者：</p> <div class=highlight><pre><span></span><code>chown jianzuoyi:jianzuoyi file          <span class=c1># 将文件的所有权给jianzuoyi</span>
+chown -R jianzuoyi:jianzuoyi dirname    <span class=c1># 将目录以及目录内的文件的所有权给jianzuoyi</span>
+</code></pre></div> <h4 id=28-ln>2.8 创建链接文件 ln<a class=headerlink href=#28-ln title="Permanent link">&para;</a></h4> <p>Linux链接文件分两种：</p> <ul> <li> <p>软链接：类似于Windows下的快捷方式，源文件删除后，链接文件不可用；</p> </li> <li> <p>硬链接：源文件删除后，链接文件仍然可以用。要删除文件，必须删除源文件及所有链接文件。</p> </li> </ul> <div class=highlight><pre><span></span><code>ln -s file fileLink <span class=c1># 软链接（fileLink为新建的链接文件）</span>
+ln -sf file fileLink# 与上述命令的区别是：当fileLink已经存在时，强制创建
+ln file fileHard    <span class=c1># 硬链接</span>
+</code></pre></div> <h4 id=29>2.9 管道和重定向<a class=headerlink href=#29 title="Permanent link">&para;</a></h4> <ul> <li>命令连接执行，前一条命令的输出，作为后一条命令的输入：使用管道符号<code>|</code></li> </ul> <p><code>command1 | command2</code></p> <ul> <li>命令串联执行，前一条命令成功与否，都会执行后一条命令：使用分号<code>;</code></li> </ul> <p><code>command1;command2</code></p> <ul> <li>前面成功，则执行后面一条，否则不执行：使用与符号<code>&amp;&amp;</code></li> </ul> <p><code>command1 &amp;&amp; command2</code></p> <ul> <li>前面失败，则执行后面一条，否则不执行：使用或符号<code>||</code></li> </ul> <p><code>command1 || command2</code></p> <p>Linux中常用重定向操作符有：</p> <ol> <li>标准输入（/dev/stdin）：代码为0， 使用&lt;或&lt;&lt;</li> <li>标准输出（/dev/stdout）：代码为1，使用&gt;（覆盖）或&gt;&gt;（追加）</li> <li>标准错误输出（/dev/stderr）：代码为2，使用2&gt;或2&gt;&gt;</li> <li>&amp;&gt; 标准输出和错误输出同时重定向</li> <li> <p>/dev/null 代表垃圾箱，不想要保存的东西都可以重定向到这里</p> </li> <li> <p>输出重定向就是将命令的结果重定向到文件，而不是输出到屏幕，通常用于保存命令的结果</p> </li> </ol> <div class=highlight><pre><span></span><code>./run.sh &gt; run.sh.o     <span class=c1># 标准输出到run.sh.o日志文件</span>
+./run.sh <span class=m>2</span>&gt; run.sh.e    <span class=c1># 标准错误输出到run.sh.e错误日志文件</span>
+./run.sh <span class=p>&amp;</span>&gt; run.sh.log  <span class=c1># 标准输出和标准错误都输出到定一个文件</span>
+./run.sh <span class=p>&amp;</span>&gt; /dev/null   <span class=c1># 丢弃标准输出和标准错误信息</span>
+&gt; file                  <span class=c1># 清空文件内容</span>
+</code></pre></div> <ul> <li>输入重定向是将文件作为输入的来源，而不是键盘</li> </ul> <div class=highlight><pre><span></span><code><span class=nb>command</span> &lt; file          <span class=c1># 将file的内容作为command的输入 </span>
+<span class=nb>command</span> <span class=s>&lt;&lt; END          # 从标准输入（键盘）中读取数据，直到遇到分界符END</span>时停止（分界符用户可以自定义）
+<span class=nb>command</span> &lt;file1 &gt; file2  <span class=c1># 将file1作为command的输入，并将处理结果输出到file2</span>
+</code></pre></div> <ul> <li>综合运用</li> </ul> <div class=highlight><pre><span></span><code><span class=ch>#!/bin/bash</span>
+
+<span class=k>while</span> <span class=nb>read</span> line
+<span class=k>do</span>
+    <span class=k>do</span> something
+<span class=k>done</span> &lt; file.txt &gt; result.txt
+</code></pre></div> <p>逐行读入file.txt的内容，处理之后，将结果保存到result.txt文件中。</p> <h4 id=210>2.10 环境变量<a class=headerlink href=#210 title="Permanent link">&para;</a></h4> <p>我们要把安装软件的路径加入到环境变量<code>$PATH</code>中，一般在<code>~/.bashrc</code>文件中加入以下内容：</p> <div class=highlight><pre><span></span><code><span class=nv>PATH</span><span class=o>=</span>/path/to/soft/bin:<span class=nv>$PATH</span>
+<span class=nb>export</span> PATH
+</code></pre></div> <p>这样就可以直接输入软件的名字运行软件了，如：</p> <div class=highlight><pre><span></span><code>bwa                 <span class=c1># 运行bwa软件</span>
+</code></pre></div> <p>如果软件的安装路径没有加入环境变量中，使用软件时必须加上其路径（绝对的或相对的），如：</p> <div class=highlight><pre><span></span><code>/path/to/bin/bwa    <span class=c1># 绝对路径：运行/path/to/bin目录下面的bwa</span>
+./bwa               <span class=c1># 相对路径：运行bwa，bwa在当前目录下  </span>
+</code></pre></div> <p>注：<code>.bashrc</code>在/home/你的用户名/文件夹下，以隐藏文件的方式存储；可使用<code>ls -a</code>查看。</p> <h4 id=211-bash>2.11 Bash快捷键<a class=headerlink href=#211-bash title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>Ctrl + A    <span class=c1># 光标移动到行首</span>
+Ctrl + E    <span class=c1># 光标移动到行尾</span>
+Ctrl + K    <span class=c1># 从当前位置删除到行尾</span>
+Ctrl + U    <span class=c1># 从当前位置删除到行首</span>
+Ctrl + R    <span class=c1># 查找历史命令</span>
+Tab键       <span class=c1># Tab键可以补全命令或文件路径，输入部分命令或路径时，尝试按Tab键补全</span>
+Ctrl + C    <span class=c1># 中止当前命令的执行</span>
+</code></pre></div> <h3 id=3>3. 文本处理<a class=headerlink href=#3 title="Permanent link">&para;</a></h3> <p>Linux文本处理的三驾马车：grep，sed，awk，对于生物信息数据分析来说具有非常重要的价值。这三个工具包含了文本处理最常见的几种需求：</p> <ul> <li>grep：文本搜索。</li> <li>sed：文本编辑。</li> <li>awk：文本分析。</li> </ul> <p>很多时候，就是靠这三个工具干活，因此必须扎实掌握。</p> <h4 id=31-grep>3.1 文本搜索 grep<a class=headerlink href=#31-grep title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>grep pattern files           <span class=c1># 搜索文件中包含pattern的行</span>
+grep -v pattern files        <span class=c1># 搜索文件中不包含pattern的行</span>
+
+grep -f pattern.txt files    <span class=c1># 搜索的pattern来自于文件中</span>
+grep -i pattern files        <span class=c1># 不区分大小写。默认搜索是区分大小写的</span>
+grep -i pattern files        <span class=c1># 只匹配整个单词，而不是字符串的一部分（如搜索hello，不会匹配到helloworld）</span>
+grep -n pattern files        <span class=c1># 显示行号信息</span>
+grep -c pattern files        <span class=c1># 显示匹配的行数</span>
+grep -l pattern files        <span class=c1># 只显示匹配的文件名</span>
+grep -L pattern files        <span class=c1># 显示不匹配的文件名</span>
+grep -C number pattern files <span class=c1># 额外显示匹配行的上下[number]行</span>
+grep pattern1 <span class=p>|</span> grep pattern2 files <span class=c1># 显示既匹配pattern1，又匹配pattern2的行</span>
+grep -E <span class=s2>&quot;pattern1|pattern2&quot;</span> files   <span class=c1># 显示匹配pattern1或者pattern2的行, grep -E相当于egrep</span>
+
+<span class=c1># 用于搜索的特殊字符</span>
+^: 表示行前
+$: 表示行尾
+
+grep <span class=s1>&#39;^#&#39;</span> result.vcf        <span class=c1># 显示VCF文件的表头信息</span>
+grep <span class=s1>&#39;^hello$&#39;</span> files        <span class=c1># 显示只包含hello的行</span>
+grep -v <span class=s1>&#39;^\s*$&#39;</span> file        <span class=c1># 删除空白行</span>
+</code></pre></div> <h4 id=32-sed>3.2 文本编辑 sed<a class=headerlink href=#32-sed title="Permanent link">&para;</a></h4> <p>sed是stream editor的缩写，中文称之为“流编辑器”。</p> <div class=highlight><pre><span></span><code>sed <span class=nb>command</span> file
+</code></pre></div> <ul> <li>command部分，针对每行要进行的处理</li> <li>file，要处理的文件</li> </ul> <p><strong>Actions</strong></p> <ul> <li>d：删除该行</li> <li>p：打印该行</li> <li>i：在行的前面插入新行</li> <li>a：在行的后面插入新行</li> <li>r：读取指定文件的内容。</li> <li>w：写入指定文件。</li> </ul> <div class=highlight><pre><span></span><code>sed -n <span class=s1>&#39;10p&#39;</span> file       <span class=c1># 显示第10行</span>
+sed -n <span class=s1>&#39;10,20p&#39;</span> file    <span class=c1># 显示第10到20之间的行</span>
+sed -n <span class=s1>&#39;/pattern/p&#39;</span> file# 显示含有pattern的行
+sed -n <span class=s1>&#39;/pattern1/,/pattern2/p&#39;</span> file <span class=c1># 显示patter1与pattern2之间的行</span>
+
+sed <span class=s1>&#39;10d&#39;</span> file          <span class=c1># 删除第10行</span>
+sed <span class=s1>&#39;10,20d&#39;</span> file       <span class=c1># 删除第10到20之间的行</span>
+sed <span class=s1>&#39;/pattern/d&#39;</span>        <span class=c1># 删除匹配pattern的行</span>
+sed <span class=s1>&#39;/^\s*$/d&#39;</span> file     <span class=c1># 删除空白行</span>
+sed <span class=s1>&#39;s/^\s*//&#39;</span> file     <span class=c1># 删除行前的空白：空格，制表符</span>
+sed <span class=s1>&#39;s/\s*$//&#39;</span> file     <span class=c1># 删除行尾的空白：空格，制表符</span>
+sed <span class=s1>&#39;s/^\s*//;s/\s*$//&#39;</span> file <span class=c1># 删除行首和行尾的空白：空格，制表符</span>
+
+sed <span class=s1>&#39;s/AA/BB/&#39;</span> file     <span class=c1># 将文件中的AA替换成BB，只替换一行中第一次出现的AA，替换后的结果输出到屏幕</span>
+sed <span class=s1>&#39;s/AA/BB/g&#39;</span> file    <span class=c1># 将文件中的所有AA都替换成BB，替换后的结果输出到屏幕</span>
+sed -i <span class=s1>&#39;s/AA/BB/g&#39;</span> file <span class=c1># 将文件中的所有AA都替换成BB，直接更改文件的内容</span>
+sed <span class=s1>&#39;/CC/s/AA/BB/g&#39;</span> file# 只替换那些含有CC的行
+sed <span class=s1>&#39;s/pattern/&amp;XXXX/&#39;</span> file <span class=c1># 在pattern之后加上XXXX。&amp;表示之前被匹配的内容</span>
+sed <span class=s1>&#39;s/pattern.*/&amp;XXXX&#39;</span> file# 在匹配pattern的行尾加上XXXX。pattern.*表示包含pattern的整行内容
+
+sed -n <span class=s1>&#39;1~4s/^@/&gt;/p;2~4p&#39;</span> file.fq &gt; file.fa <span class=c1># Fastq文件转Fasta文件</span>
+sed -n <span class=s1>&#39;2~4p&#39;</span> file.fq       <span class=c1># 提取Fastq文件的序列</span>
+
+sed <span class=s1>&#39;y/ABC/XYZ/&#39;</span> file   <span class=c1># 将ABC逐字替换成XYZ</span>
+
+sed <span class=s1>&#39;1i\hello&#39;</span> file     <span class=c1># 在第1行前面插入一行，内容为hello，通常用来为文件增加标题</span>
+sed <span class=s1>&#39;1a\hello&#39;</span> file     <span class=c1># 在第1行后面插入一行，内容为hello</span>
+sed <span class=s1>&#39;1r file2&#39;</span> file1    <span class=c1># 在第1行后面读入file2的内容</span>
+sed <span class=s1>&#39;/pattern/w file2&#39;</span> file1 <span class=c1># 将匹配的行写入file2中</span>
+</code></pre></div> <h4 id=33-awk>3.3 文本处理 awk<a class=headerlink href=#33-awk title="Permanent link">&para;</a></h4> <p>Awk是一个强大的文本分析工具，它每次读入一条记录，并把每条记录切分成字段后进行分析。Awk官方文档是非常好的学习材料，通过<code>man awk</code>查看。</p> <div class=highlight><pre><span></span><code>awk <span class=s1>&#39;BEGIN { action } pattern { action } END { action }&#39;</span>
+</code></pre></div> <p><strong>Awk程序通常是一系列 pattern {action}对：</strong></p> <p><code>pattern</code>，表示模式匹配，只处理匹配的行。pattern可以省略，表示匹配所有行</p> <p><code>action</code>，表示对匹配行所做的动作。{actions}可以省略，表示{ print }。<code>BEGIN</code>和<code>END</code>的{action}不能省略</p> <p><strong>pattern可能是：</strong></p> <p><code>BEGIN</code>， 执行初始化操作，程序开始时执行一次</p> <p><code>END</code>，执行收尾工作，程序结束时执行一次</p> <p><code>expression</code>，一个表达式，既可以是判断语句，也可以是正则表达式</p> <p><strong>常用参数</strong></p> <ul> <li><code>-F value</code> 设置域分隔符，相当于给FS内置变量赋值</li> <li><code>-v var=value</code> 将变量value的值赋给程序变量var，-v可以多次使用</li> </ul> <p><strong>记录与字段</strong></p> <p>记录是一次读入的内容，通常是文件的一行，保存在字段变量<span class=arithmatex>\(0中，记录可以被分割成字段，保存在变量\)</span>1，<span class=arithmatex>\(2，...，\)</span>NF中。</p> <p><strong>表达式与操作符</strong></p> <p>Awk表达式的符号与C语言的类似，基本的表达式有数字，字符串，变量，字段，数组以及函数调用。变量无需声明，它们在首次使用时被初始化为<code>null</code>。</p> <div class=highlight><pre><span></span><code><span class=nv>assignment</span>          <span class=o>=</span>  +<span class=o>=</span>  -<span class=o>=</span>  *<span class=o>=</span>  /<span class=o>=</span>  %<span class=o>=</span>  ^<span class=o>=</span>
+conditional         ?  :
+logical and         <span class=o>&amp;&amp;</span>
+logical or          <span class=o>||</span>
+logical not         !
+array membership    in
+matching            ~   !~
+relational          &lt;  &gt;   &lt;<span class=o>=</span>  &gt;<span class=o>=</span>  <span class=o>==</span>  !<span class=o>=</span>
+concatenation       <span class=o>(</span>no explicit operator<span class=o>)</span>
+add ops             +  -
+mul ops             *  /  %
+unary               +  -
+exponentiation      ^
+inc and dec         ++ -- <span class=o>(</span>both post and pre<span class=o>)</span>
+field               $
+</code></pre></div> <p><strong>正则表达式</strong></p> <p>在Awk中语言中，通常测试一个记录、字段或字符串是否与一个正则表达式匹配，匹配返回1，不匹配返回0。正则表达式用两个反斜杠<code>/</code>包围。</p> <div class=highlight><pre><span></span><code>expr ~ /r/                           <span class=c1># 评估expr是否与r匹配。匹配的意思是expr的一个子串是否在正则表达式r定义的字符串集中。</span>
+
+/r/ <span class=o>{</span> action <span class=o>}</span>, <span class=nv>$0</span> ~ /r/ <span class=o>{</span> action <span class=o>}</span>  <span class=c1># 两者相同， /r/ 等于 $0 ~ /r/</span>
+</code></pre></div> <p>任何表达式都可以放到<code>~</code>和<code>!~</code>右边或者内建的需要正则表达式的地方。在必要的时候，该表达式会被转变成字符串，然后作为一个正则表达式来解释。以下三行awk命令完成同样的功能：输出第5列为10的的行。</p> <div class=highlight><pre><span></span><code>seq <span class=m>20</span> <span class=p>|</span> xargs -n5 &gt; file
+<span class=c1># cat file</span>
+<span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span>
+<span class=m>6</span> <span class=m>7</span> <span class=m>8</span> <span class=m>9</span> <span class=m>10</span>
+<span class=m>11</span> <span class=m>12</span> <span class=m>13</span> <span class=m>14</span> <span class=m>15</span>
+<span class=m>16</span> <span class=m>17</span> <span class=m>18</span> <span class=m>19</span> <span class=m>20</span>
+
+awk <span class=s1>&#39;$5 ~ /10/&#39;</span> file
+awk <span class=s1>&#39;$5 ~ &quot;10&quot;&#39;</span> file
+awk <span class=s1>&#39;$5 ~ 10&#39;</span> file
+</code></pre></div> <p><strong>数组</strong></p> <p>Awk支持一维数组。其表示方法为<code>array[expr]</code>，<code>expr</code>在内部被统一转换成字符串类型，因此A[1]，与A["1"]相同，事实上索引都是“1”。索引为字符串的数组被称为关联数组。<code>expr in array</code>用于判断数组元素array[expr]是否存在。</p> <div class=highlight><pre><span></span><code><span class=k>for</span> <span class=o>(</span> var in array <span class=o>)</span> statement
+</code></pre></div> <p><strong>控制语句</strong></p> <div class=highlight><pre><span></span><code><span class=k>if</span> <span class=o>(</span> expr <span class=o>)</span> statement
+<span class=k>if</span> <span class=o>(</span> expr <span class=o>)</span> statement <span class=k>else</span> statement
+<span class=k>while</span> <span class=o>(</span> expr <span class=o>)</span> statement
+<span class=k>do</span> statement <span class=k>while</span> <span class=o>(</span> expr <span class=o>)</span>
+<span class=k>for</span> <span class=o>(</span> opt_expr <span class=p>;</span> opt_expr <span class=p>;</span> opt_expr <span class=o>)</span> statement
+<span class=k>for</span> <span class=o>(</span> var in array <span class=o>)</span> statement
+<span class=k>continue</span>
+<span class=nb>break</span>
+</code></pre></div> <p><strong>内置变量</strong></p> <ul> <li><code>NR</code> - 当前行数</li> <li><code>NF</code> - 当前行的列数</li> <li><code>RS</code>，行分隔符，默认是换行符</li> <li><code>FS</code>，列分隔符，默认是空格和制表符</li> <li><code>ORS</code>，输出行分隔符，默认为换行符</li> <li><code>OFS</code>，输出列分隔符，默认为空格</li> <li><code>FILENAME</code>，当前文件名</li> </ul> <p><strong>内置函数</strong></p> <p>字符串函数</p> <p>sub()、substr()、gsub()，sprintf()，index()，length()， match()，split()，tolower(), toupper()</p> <p>数学函数</p> <p>sin()，cos(), ...</p> <p><strong>输入输出</strong></p> <p>有两个输出语句，<code>print</code>和<code>printf</code></p> <div class=highlight><pre><span></span><code><span class=nb>print</span>                           <span class=c1># 打印整条记录到标准输出，相当于print $0</span>
+<span class=nb>print</span> <span class=n>expr1</span><span class=p>,</span> <span class=n>expr2</span><span class=p>,</span> <span class=o>...</span><span class=p>,</span> <span class=n>exprn</span>  <span class=c1># 打印指定字段到标准输出</span>
+<span class=n>printf</span> <span class=nb>format</span><span class=p>,</span> <span class=n>expr</span><span class=o>-</span><span class=nb>list</span>        <span class=c1># C语言printf函数的重用</span>
+</code></pre></div> <p>输入函数getline有以下几种形式：</p> <div class=highlight><pre><span></span><code>getline                         <span class=c1># 读取下一条记录到$0，更新NF，NR和FNR</span>
+getline var                     <span class=c1># 读取下一条记录到var，更新NR和FNR</span>
+getline &lt; file                  <span class=c1># 从文件读取记录到$0，更新NF</span>
+getline var &lt; file              <span class=c1># 从文件读取记录到var</span>
+<span class=nb>command</span> <span class=p>|</span> getline               <span class=c1># 通过管道传递command的结果到$0，更新NF</span>
+<span class=nb>command</span> <span class=p>|</span> getline var           <span class=c1># 通过管道传递command的结果到var</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>seq <span class=m>10</span> <span class=p>|</span> awk <span class=s1>&#39;{print $0;getline}&#39;</span>                     <span class=c1># 显示奇数行</span>
+seq <span class=m>10</span> <span class=p>|</span> awk <span class=s1>&#39;{getline; print $0}&#39;</span>                    <span class=c1># 显示偶数行</span>
+seq <span class=m>10</span> <span class=p>|</span> awk <span class=s1>&#39;{getline tmp; print tmp; print $0}&#39;</span>     <span class=c1># 奇偶行对调</span>
+
+awk <span class=s1>&#39;BEGIN {&quot;date&quot; | getline;close(&quot;date&quot;);print $0}&#39;</span> <span class=c1># 得到系统当前时间</span>
+
+<span class=c1># fastq转换成fasta</span>
+awk <span class=s1>&#39;{getline seq; getline comment; getline quality; sub(&quot;@&quot;, &quot;&gt;&quot;, $0); print $0&quot;\n&quot;seq}&#39;</span> file
+</code></pre></div> <p><strong>示例</strong></p> <div class=highlight><pre><span></span><code>awk <span class=s1>&#39;{print $0}&#39;</span> file   <span class=c1># 打印整行</span>
+awk <span class=s1>&#39;{print $1}&#39;</span> file   <span class=c1># 打印第一列</span>
+awk <span class=s1>&#39;{print $2}&#39;</span> file   <span class=c1># 打印第二列</span>
+awk <span class=s1>&#39;{print $NF}&#39;</span> file  <span class=c1># 打印最后一列</span>
+awk <span class=s1>&#39;{print $(NF-1)}&#39;</span> file#打印倒数第二列
+awk -F <span class=s1>&#39;;&#39;</span> -v <span class=nv>OFS</span><span class=o>=</span><span class=s1>&#39;\t&#39;</span> <span class=s1>&#39;{print $1,$2,$NF}&#39;</span> file <span class=c1># 读入的文件以逗号;分隔列，打印第1列，第2列和最后一列，并且打印时以制表符作为列的分隔符</span>
+<span class=nv>number</span><span class=o>=</span><span class=m>10</span><span class=p>;</span>awk -v <span class=nv>n</span><span class=o>=</span><span class=nv>$number</span> <span class=s1>&#39;{print n}&#39;</span> file <span class=c1># number的值被传给了程序变量n</span>
+awk <span class=s1>&#39;$2 &gt; 100&#39;</span> file     <span class=c1># 打印第2列大于100的行</span>
+awk <span class=s1>&#39;NR&gt;1 &amp;&amp; NR&lt;4&#39;</span> file <span class=c1># 打印第2~3行</span>
+
+awk <span class=s1>&#39;/EGFR/&#39;</span> file       <span class=c1># 打印含有EGFR的行，相当于grep EGFR file</span>
+awk <span class=s1>&#39;$1 ~ /EGFR/&#39;</span> file  <span class=c1># 打印第1列含有EGFR的列</span>
+
+<span class=c1># 按指定列去除重复行</span>
+<span class=c1># cat file</span>
+<span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span>
+<span class=m>6</span> <span class=m>2</span> <span class=m>8</span> <span class=m>9</span> <span class=m>10</span>
+<span class=m>11</span> <span class=m>12</span> <span class=m>13</span> <span class=m>14</span> <span class=m>15</span>
+<span class=m>16</span> <span class=m>17</span> <span class=m>18</span> <span class=m>19</span> <span class=m>20</span>
+awk <span class=s1>&#39;!a[$2]++&#39;</span> file     <span class=c1># 第二列出现两次2，只保留第一次出现的那一行，结果如下：</span>
+<span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span>
+<span class=m>11</span> <span class=m>12</span> <span class=m>13</span> <span class=m>14</span> <span class=m>15</span>
+<span class=m>16</span> <span class=m>17</span> <span class=m>18</span> <span class=m>19</span> <span class=m>20</span>
+
+awk <span class=s1>&#39;{sum+=$1} END {print sum}&#39;</span> file    <span class=c1># 累加文件的第一列</span>
+awk <span class=s1>&#39;{sum+=$1} END {print sum/NR}&#39;</span> file <span class=c1># 求第一列的平均数</span>
+
+<span class=c1># 从含有多条fasta序列的文件中提取指定序列</span>
+ awk -v <span class=nv>RS</span><span class=o>=</span><span class=s2>&quot;&gt;&quot;</span> <span class=s1>&#39;/chr1/ {print $0}&#39;</span> hg19.fa  <span class=c1># 提取chr1的序列</span>
+ awk -v <span class=nv>RS</span><span class=o>=</span><span class=s2>&quot;&gt;&quot;</span> <span class=s1>&#39;/chr1|chr2/ {print $0}&#39;</span> hg19.fa <span class=c1># 提取chr1和chr2的序列</span>
+</code></pre></div> <h4 id=cat>合并文本（按行） cat<a class=headerlink href=#cat title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>cat file              <span class=c1># 合并一个或多个文件至标准输出，当只有一个文件时，相当于显示所有文件内容</span>
+cat file1 file2       <span class=c1># 合并file1和file2的内容，并在屏幕上输出</span>
+cat R1.fq.gz R2.fq.gz <span class=c1># 可以合并gzip压缩文件，如测序数据原始reads的合并</span>
+</code></pre></div> <h4 id=paste>合并文本（按列） paste<a class=headerlink href=#paste title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>paste file1 file2           <span class=c1># 按列将两个文本拼接在一起，默认中间加制表符</span>
+paste -d <span class=s1>&#39; &#39;</span> file1 file2    <span class=c1># -d参数可以改变列之间的分隔符</span>
+</code></pre></div> <h4 id=join>合并文本（按列） join<a class=headerlink href=#join title="Permanent link">&para;</a></h4> <h4 id=cut>切分文本（按列）cut<a class=headerlink href=#cut title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>cut -f <span class=m>1</span> file                   <span class=c1># 剪切文件的第1列</span>
+cut -f <span class=m>1</span>,2                      <span class=c1># 剪切文件的第1，2列</span>
+cut -f <span class=m>3</span>-                       <span class=c1># 剪切第3列及之后的所有列</span>
+cut -f <span class=m>3</span> --complement file      <span class=c1># 取除第3列之外的所有列</span>
+cut -d <span class=s1>&#39; &#39;</span> -f <span class=m>1</span> file            <span class=c1># 剪切第1列，但以空格作为列与列之间的分隔符。默认以TAB作为分隔符</span>
+grep <span class=s1>&#39;^&gt;&#39;</span> test.fa <span class=p>|</span> cut -c <span class=m>2</span>-   <span class=c1># 得到fasta文件中的序列名称（去掉了&gt;符号）</span>
+</code></pre></div> <ul> <li>-d 指定分界符</li> <li>cut的范围</li> <li>N- 第N个字段到结尾</li> <li>-M 第1个字段到M</li> <li>N-M N到M个字段</li> <li>cut的单位</li> <li>-f 以字段为单位（使用分隔符）</li> <li>-c 以字符为单位</li> <li>-b 以字节为单位</li> </ul> <h4 id=split>分割文件 split<a class=headerlink href=#split title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>split -d -l <span class=m>10000</span> file chunk_   <span class=c1># 按行数分割文件，每个文件最多10000行，分割成的文件名为chunk_01, chunk_02。。。</span>
+split -d -b 100m file chunk_    <span class=c1># 按大小分割文件，每个文件最多100m，分割成的文件名为chunk_01, chunk_02。。。</span>
+</code></pre></div> <h4 id=sort>排序 sort<a class=headerlink href=#sort title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>sort file               <span class=c1># 默认按字典序对文件进行排序</span>
+sort -k2,2 -k3,3 file   <span class=c1># 先按第2列排序，第2列相同，再按第3列排序</span>
+sort -k2,2n file        <span class=c1># 按第2列排序，且第2列是数字，升序</span>
+sort -k2,2nr file       <span class=c1># 按第2列排序，且第2列是数字，降序</span>
+sort -u file            <span class=c1># 先排序文件，然后去除相邻的重复行，只保留一条记录</span>
+</code></pre></div> <h4 id=uniq>去重 uniq<a class=headerlink href=#uniq title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>sort file <span class=p>|</span> uniq        <span class=c1># 去除相信的重复行，只保留一条记录，相当于： sort -u file</span>
+
+<span class=c1># 利用sort, uniq取两个文件的交、并、补集</span>
+sort a b <span class=p>|</span> uniq         <span class=c1># 并集</span>
+sort a b <span class=p>|</span> uniq -d &gt; c  <span class=c1># 交集</span>
+sort a c <span class=p>|</span> uniq -u      <span class=c1># 补集</span>
+</code></pre></div> <h4 id=wc>统计文本 wc<a class=headerlink href=#wc title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code>wc -l file      <span class=c1># 统计行数</span>
+wc -w file      <span class=c1># 统计单词数</span>
+wc -c file      <span class=c1># 统计字符数</span>
+</code></pre></div> <h4 id=dos2unix>格式转换 dos2unix<a class=headerlink href=#dos2unix title="Permanent link">&para;</a></h4> <p>Linux很多工具都是针对纯文本文件的，并且需要是Unix-like格式的文本文件。但是很多时候文件是从Windows或Mac系统上传到Linux服务器上的，这可能导致文件格式不兼容，原因是不同平台生成的文本文件的换行符不一样。</p> <table> <thead> <tr> <th>操作系统</th> <th>符号</th> <th>正则表达式</th> </tr> </thead> <tbody> <tr> <td>Mac</td> <td>^M</td> <td>\r</td> </tr> <tr> <td>Linux</td> <td>$</td> <td>\n</td> </tr> <tr> <td>Windows</td> <td>^M$</td> <td>\r\n</td> </tr> </tbody> </table> <div class=highlight><pre><span></span><code>cat -A file             <span class=c1># 查看文件换行符情况</span>
+dos2unix file           <span class=c1># Windows格式转换成Unix-like格式</span>
+</code></pre></div> <h4 id=43-watch>4.3 watch<a class=headerlink href=#43-watch title="Permanent link">&para;</a></h4> <p>使用watch 工具监控变化 当需要持续的监控应用的某个数据变化时，watch工具能满足要求； 执行watch命令后，会进入到一个界面，输出当前被监控的数据，一旦数据变化，便会高亮显示变化情况；</p> <p>示例：有时候，我们运行一个软件或流程，有许多文件需要输出到一个目录中，但时间有点久，我们想实时查看文件的写入情况：</p> <div class=highlight><pre><span></span><code>watch -n <span class=m>3</span> -dc ls -l    <span class=c1># 实时高亮显示当前目录内容变化，每3秒刷新一次</span>
+</code></pre></div> <h3 id=5>5. 进程管理<a class=headerlink href=#5 title="Permanent link">&para;</a></h3> <p>使用进程管理工具，我们可以查询程序当前的运行状态，或终止一个进程；</p> <p>任何进程都与文件关联；我们会用到lsof工具（list opened files），作用是列举系统中已经被打开的文件。在linux环境中，任何事物都是文件，设备是文件，目录是文件，甚至sockets也是文件。用好lsof命令，对日常的linux管理非常有帮助。</p> <h4 id=51>5.1 查询进程<a class=headerlink href=#51 title="Permanent link">&para;</a></h4> <p>ps</p> <div class=highlight><pre><span></span><code>ps aut      <span class=c1># 查看后台任务运行情况，第2列是任务的PID号</span>
+</code></pre></div> <h4 id=52>5.2 终止进程<a class=headerlink href=#52 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=nb>kill</span> PID    <span class=c1># 杀死指定PID的进程 (PID为Process ID)</span>
+<span class=nb>kill</span> -9 PID <span class=c1># 删除编号为PID的任务</span>
+<span class=nb>kill</span> %job   <span class=c1># 杀死job工作 (job为job number)</span>
+</code></pre></div> <h4 id=53>5.3 远程任务<a class=headerlink href=#53 title="Permanent link">&para;</a></h4> <p>nohup，disown - 远程任务管理:</p> <div class=highlight><pre><span></span><code>nohup ./run.sh <span class=p>&amp;</span>&gt; run.sh.o <span class=p>&amp;</span>    <span class=c1># 远程SSH登录服务器，在后台运行任务，断开远程连接后任务仍然在后台跑</span>
+</code></pre></div> <ul> <li>如果运行任务时没有加nohup命令，但任务运行时间长，但又必须断开（比如快下班了），若不想让任务因为断开远程连接而中断，可以用disown命令补救</li> </ul> <div class=highlight><pre><span></span><code>./run.sh    <span class=c1># 假如任务是直接这样开始跑的</span>
+ctrl + z    <span class=c1># 按ctrl + z，将任务放到后台</span>
+<span class=nb>jobs</span>        <span class=c1># 输入jobs命令，回车，可以看到任务是暂停的： [1]+  Stopped(SIGTSTP)        bash run.sh</span>
+<span class=nb>bg</span>          <span class=c1># 让后台暂停的任务开始运行</span>
+<span class=nb>jobs</span>        <span class=c1># 再次运行jobs，可以看到任务已经跑起来了：   [1]+  Running                 bash run.sh &amp;</span>
+<span class=nb>disown</span> -r   <span class=c1># 从当前shell中移除运行中的作业，至此，可以关掉终端回家了</span>
+</code></pre></div> <h3 id=6>6. 性能监控<a class=headerlink href=#6 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code>df -h       <span class=c1># 查看磁盘使用情况，-h: human缩写，以易读的方式显示结果（即带单位：比如M/G，如果不加这个参数，显示的数字以B为单位）</span>
+du -sh      <span class=c1># 查看当前目录使用了多少磁盘空间</span>
+du -sh *    <span class=c1># 查看当前目录下各文件或文件夹使用的磁盘空间</span>
+</code></pre></div> <p>top</p> <div class=highlight><pre><span></span><code>top -c      <span class=c1># 进入top界面，-c显示完整的命令名</span>
+</code></pre></div> <p>输入top命令后，进入到交互界面；接着输入字符命令后显示相应的进程状态：</p> <p>对于进程，平时我们最常想知道的就是哪些进程占用CPU最多，占用内存最多。以下两个命令就可以满足要求:</p> <ul> <li>P: 根据CPU使用百分比大小进行排序。 </li> <li>M: 根据驻留内存大小进行排序。</li> <li>i: 使top不显示任何闲置或者僵死进程。</li> </ul> <p>htop</p> <div class=highlight><pre><span></span><code>htop        <span class=c1># top的完美替代品，Linux系统不自带，需要安装， ubuntu系统：apt install htop</span>
+</code></pre></div> <p>查看内存使用量：</p> <div class=highlight><pre><span></span><code>free -h     <span class=c1># 查看内存使用情况</span>
+</code></pre></div> <h3 id=7>7. 网络工具<a class=headerlink href=#7 title="Permanent link">&para;</a></h3> <p>远程登录：</p> <div class=highlight><pre><span></span><code>ssh username@host                    <span class=c1># ssh 远程连接至服务器</span>
+</code></pre></div> <p>复制文件：</p> <div class=highlight><pre><span></span><code>scp username@host:/path/to/file .    <span class=c1># 将远程服务器上的文件传输到当前目录，文件名保持不变，复制目录加参数-r</span>
+scp file username@host:/path/to/dir/ <span class=c1># 将本地文件复制到远程服务器，文件名保持不变，复制目录加参数-r</span>
+</code></pre></div> <p>rsync:</p> <p>rsync与scp不同，它只是做增量更新且支持断点续传，也就是要复制的文件存在于目标文件夹且内容与当前要复制的相同，则不会复制。</p> <div class=highlight><pre><span></span><code>rsync -azvP dir1 dir2                   <span class=c1># 将dir1的内容同步至dir2</span>
+rsync -azvP --delete dir1 dir2          <span class=c1># 同步dir2与dir1，dir1中删除的文件，dir2中也要跟着删除</span>
+rsync -azvP --exclude <span class=s1>&#39;file&#39;</span> dir1 dir2  <span class=c1># 同步dir2与dir2，且将file排除在外</span>
+</code></pre></div> <p>wget:</p> <div class=highlight><pre><span></span><code>wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh    <span class=c1># 下载文件到当前目录，文件名保持不变</span>
+</code></pre></div> <h3 id=8>8. 用户管理<a class=headerlink href=#8 title="Permanent link">&para;</a></h3> <h4 id=81>8.1 用户<a class=headerlink href=#81 title="Permanent link">&para;</a></h4> <p>添加用户：</p> <div class=highlight><pre><span></span><code>useradd -m username <span class=c1># 创建用户并为其在/home下创建一个以其名称命名的目录</span>
+</code></pre></div> <p>删除用户：</p> <div class=highlight><pre><span></span><code>
+</code></pre></div> <p>更改密码：</p> <div class=highlight><pre><span></span><code>passwd             <span class=c1># 更改当前用户的密码</span>
+passwd username    <span class=c1># 更改指定用户的密码</span>
+</code></pre></div> <h4 id=82>8.2 组<a class=headerlink href=#82 title="Permanent link">&para;</a></h4> <h4 id=83>8.3 权限<a class=headerlink href=#83 title="Permanent link">&para;</a></h4> <h3 id=9>9. 系统管理<a class=headerlink href=#9 title="Permanent link">&para;</a></h3> <h3 id=10-bash>10. Bash脚本模板<a class=headerlink href=#10-bash title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><span class=ch>#!/bin/bash</span>
+
+command1
+
+command2
+
+...
+</code></pre></div> <p><code>chmod +x run.sh</code> 给run.sh脚本增加可执行权限</p> <p>执行脚本，以下三种方式都可以：</p> <div class=highlight><pre><span></span><code><span class=c1># 脚本在前台执行，标准输出和标准错误输出到屏幕</span>
+./run.sh
+bash run.sh
+sh run.sh       <span class=c1># 前提sh链接到了bash，如果没有，需要root权限执行命令：ln -sf /bin/bash /bin/sh</span>
+
+<span class=c1># 脚本在前台执行，标准输出和标准错误保存到文件</span>
+./run.sh <span class=p>&amp;</span>&gt; run.sh.o
+
+<span class=c1># 脚本在后台执行，在最后加上一个&amp;符号</span>
+./run.sh <span class=p>&amp;</span>&gt; run.sh.o <span class=p>&amp;</span>
+
+<span class=c1># 脚本在后台执行，并且防断线（长时间运行任务时使用）</span>
+nohup ./run.sh <span class=p>&amp;</span>&gt; run.sh.o <span class=p>&amp;</span>
+</code></pre></div> <h4 id=101>10.1 迭代文件中的每一行<a class=headerlink href=#101 title="Permanent link">&para;</a></h4> <ul> <li>while循环法</li> </ul> <div class=highlight><pre><span></span><code><span class=k>while</span> <span class=nb>read</span> line
+<span class=k>do</span>
+    <span class=nb>echo</span> <span class=nv>$line</span>
+<span class=k>done</span> &lt; file.txt
+
+单行shell写法：
+cat file.txt <span class=p>|</span> <span class=k>while</span> <span class=nb>read</span> line<span class=p>;</span> <span class=k>do</span> <span class=nb>echo</span> <span class=nv>$line</span><span class=p>;</span> <span class=k>done</span>
+</code></pre></div> <h4 id=102>10.2 迭代一行中的每一个单词<a class=headerlink href=#102 title="Permanent link">&para;</a></h4> <div class=highlight><pre><span></span><code><span class=k>for</span> word in <span class=nv>$line</span>
+<span class=k>do</span>
+    <span class=nb>echo</span> <span class=nv>$word</span>
+<span class=k>done</span>
+</code></pre></div> <h4 id=103>10.3 迭代单词中的每一个字符<a class=headerlink href=#103 title="Permanent link">&para;</a></h4> <p>${string:start_pos:num_of_chars}：从字符串中提取一个字符；(bash文本切片）</p> <p>${#word}：返回变量word的长度</p> <div class=highlight><pre><span></span><code><span class=k>for</span><span class=o>((</span><span class=nv>i</span><span class=o>=</span><span class=m>0</span><span class=p>;</span>i&lt;<span class=si>${#</span><span class=nv>word</span><span class=si>}</span><span class=p>;</span>i++<span class=o>))</span>
+<span class=k>do</span>
+    <span class=nb>echo</span> <span class=si>${</span><span class=nv>word</span><span class=p>:</span><span class=nv>i</span><span class=p>:</span><span class=nv>1</span><span class=p>);</span>
+<span class=p>done</span>
+</code></pre></div> <h3 id=11_1>11.并行工具<a class=headerlink href=#11_1 title="Permanent link">&para;</a></h3> <p>xargs - 命令组合工具</p> <div class=highlight><pre><span></span><code>cat file <span class=p>|</span> xargs        <span class=c1># 将file的内容显示成一行</span>
+cat file <span class=p>|</span> xargs -n3    <span class=c1># 将file的内容每3列一行进行输出</span>
+find /ifs/result -name <span class=s1>&#39;*.fq.gz&#39;</span> <span class=p>|</span> xargs -n1 -I<span class=o>{}</span> cp <span class=o>{}</span> /ifs/data/  <span class=c1># 查找fq.gz文件并复制到/ifs/data目录下</span>
+find /ifs/result -name <span class=s1>&#39;*.fq.gz&#39;</span> <span class=p>|</span> xargs tar czvf all.fq.gz         <span class=c1># 查找fq.gz文件并打包在一起</span>
+find . -type f -name <span class=s1>&#39;*.log&#39;</span> -print0 <span class=p>|</span> xargs -0 rm -f               <span class=c1># 当rm文件过多时，可以这样删除</span>
+find . -type f -name <span class=s1>&#39;*.py&#39;</span> -print0 <span class=p>|</span> xargs -0 wc -l                <span class=c1># 统计一个目录中所有python文件的行数</span>
+</code></pre></div> <p>parallel - 并行工具</p> <p>parallel是增强版的xargs。假如一个脚本文件中有4条命令：</p> <div class=highlight><pre><span></span><code><span class=c1># cat run.sh</span>
+<span class=nb>echo</span> a
+<span class=nb>echo</span> b
+<span class=nb>echo</span> c
+<span class=nb>echo</span> d
+
+<span class=c1># 同时执行4个任务，生信中常通过这种方式并行执行多个任务</span>
+cat run.sh <span class=p>|</span> parallel -j <span class=m>4</span>  
+</code></pre></div> <div class=highlight><pre><span></span><code>find *.fq <span class=p>|</span> parallel -j <span class=m>12</span> <span class=s2>&quot;fastqc {} --outdir .&quot;</span>   <span class=c1># 同时执行12个Fastqc任务</span>
+find *.bam <span class=p>|</span> parallel --dry-run <span class=s1>&#39;samtools index {}&#39;</span> <span class=c1># 同时执行samtools index任务，--dry-run显示任务命令但不实际执行，用于命令检查</span>
+</code></pre></div> <h3 id=_9>其他命令<a class=headerlink href=#_9 title="Permanent link">&para;</a></h3> <div class=highlight><pre><span></span><code><span class=nb>time</span> <span class=nb>command</span>    <span class=c1># 显示命令执行时间</span>
+date            <span class=c1># 显示日期和时间</span>
+seq <span class=m>10</span>          <span class=c1># 产生1到10的整数</span>
+md5sum          <span class=c1># 生成，或验证文件的MD5值</span>
+</code></pre></div> <h2 id=linux_2>Linux工具进阶<a class=headerlink href=#linux_2 title="Permanent link">&para;</a></h2> <h2 id=_10>工具参考篇<a class=headerlink href=#_10 title="Permanent link">&para;</a></h2> <p>如果你对生物信息学感兴趣，可看我在知乎上的文章：从菜鸟到专家。</p> <p><a href=https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/02_file_manage.html#>https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/02_file_manage.html#</a></p> </article> </div> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2019 - 2020 Zuoyi Jian </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> <div class=md-footer-social> <a href=https://github.com/jianzuoyi target=_blank rel=noopener title=github.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </a> <a href=https://gitter.im/jianzuoyi/mkdocs-material target=_blank rel=noopener title=gitter.im class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 384 512"><path d="M66.4 322.5H16V0h50.4v322.5zM166.9 76.1h-50.4V512h50.4V76.1zm100.6 0h-50.4V512h50.4V76.1zM368 76h-50.4v247H368V76z"/></svg> </a> <a href=https://hub.docker.com/r/jianzuoyi/mkdocs-material/ target=_blank rel=noopener title=hub.docker.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg> </a> <a href=https://twitter.com/jianzuoyi target=_blank rel=noopener title=twitter.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> </a> <a href=https://linkedin.com/in/jianzuoyi/ target=_blank rel=noopener title=linkedin.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg> </a> <a href=https://instagram.com/jianzuoyi target=_blank rel=noopener title=instagram.com class=md-footer-social__link> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a> </div> </div> </div> </footer> </div> <script src=../../assets/javascripts/vendor.581c8fc6.min.js></script> <script src=../../assets/javascripts/bundle.66a8d459.min.js></script><script id=__lang type=application/json>{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script> <script>
+        app = initialize({
+          base: "../..",
+          features: ['tabs'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script> </body> </html>
