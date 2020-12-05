@@ -155,7 +155,10 @@ nav:
     - 2020-11-17 Conda教程: tutorial/tutorial-conda.md
   - Git教程:
     - 2020-11-09 Git教程: tutorial/tutorial-git.md
+  - Rosalind:
+    - 2020-12-04 Rosalind:001 碱基统计: 2020-12-04-rosalind-base-count.md
   - 微生物专题:
+    - 2020-12-01 从零开始学PCR技术（五）：试验污染: 2020-12-02-PCR-5-pollution.md
     - 2020-12-01 从零开始学PCR技术（四）：常见问题: 2020-12-01-PCR-4-question.md
     - 2020-11-30 从零开始学PCR技术（三）：PCR引物设计: 2020-11-30-PCR-3-primer-design.md
     - 2020-11-29 从零开始学PCR技术（二）：Taq DNA酶: 2020-11-29-PCR-2-taq_dna.md
