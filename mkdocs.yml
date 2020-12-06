@@ -156,7 +156,9 @@ nav:
   - Git教程:
     - 2020-11-09 Git教程: tutorial/tutorial-git.md
   - Rosalind:
-    - 2020-12-04 Rosalind:001 碱基统计: 2020-12-04-rosalind-base-count.md
+    - 2020-12-04 Rosalind:003 中心法则：翻译: rosalind/2020-12-05-rosalind-003-translate.md
+    - 2020-12-04 Rosalind:002 中心法则：转录: rosalind/2020-12-05-rosalind-002-transcript.md
+    - 2020-12-04 Rosalind:001 碱基统计: rosalind/2020-12-04-rosalind-001-base-count.md
   - 微生物专题:
     - 2020-12-01 从零开始学PCR技术（五）：试验污染: 2020-12-02-PCR-5-pollution.md
     - 2020-12-01 从零开始学PCR技术（四）：常见问题: 2020-12-01-PCR-4-question.md
