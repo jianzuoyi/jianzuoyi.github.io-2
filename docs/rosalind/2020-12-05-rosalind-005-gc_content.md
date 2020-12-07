@@ -1,4 +1,4 @@
-# 生物信息学算法之Python实现|Rosalind刷题笔记：005 求DNA的反向互补序列
+# 生物信息学算法之Python实现|Rosalind刷题笔记：005 计算GC含量
 
 DNA序列的GC含量是指序列中'G'和'C'所占的百分比。
 
