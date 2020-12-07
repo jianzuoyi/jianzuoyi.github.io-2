@@ -156,6 +156,7 @@ nav:
   - Git教程:
     - 2020-11-09 Git教程: tutorial/tutorial-git.md
   - Rosalind:
+    - 2020-12-04 Rosalind:004 DNA反向互补: rosalind/2020-12-05-rosalind-004-revc.md
     - 2020-12-04 Rosalind:003 中心法则：翻译: rosalind/2020-12-05-rosalind-003-translate.md
     - 2020-12-04 Rosalind:002 中心法则：转录: rosalind/2020-12-05-rosalind-002-transcript.md
     - 2020-12-04 Rosalind:001 碱基统计: rosalind/2020-12-04-rosalind-001-base-count.md
