@@ -25,6 +25,13 @@
   <link rel="stylesheet" href="{{ 'assets/stylesheets/overrides.9514a156.min.css' | url }}">
 {% endblock %}
 {% block announce %}
+  <a href="https://jianzuoyi.github.io/img/barcode_2d.png">
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/weixin.svg" %}
+    </span>
+    <strong>公众号: @简说基因</strong>
+  </a>
+
   <a href="https://www.zhihu.com/people/jianzuoyi">
     关注
     <span class="twemoji twitter">
@@ -33,13 +40,13 @@
     <strong>知乎: @简佐义</strong>
   </a>
 
-  <a href="https://jianzuoyi.github.io/img/barcode_2d.png">
+  <a href="https://github.com/jianzuoyi">
     <span class="twemoji twitter">
-      {% include ".icons/fontawesome/brands/weixin.svg" %}
+      {% include ".icons/fontawesome/brands/github.svg" %}
     </span>
-    <strong>公众号: @简说基因</strong>
-
+    <strong>Github: @jianzuoyi</strong>
   </a>
+
 {% endblock %}
 {% block content %}
   {{ super() }}
