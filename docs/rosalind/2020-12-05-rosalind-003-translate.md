@@ -92,42 +92,4 @@ if __name__ == '__main__':
 * 习题中的密码子表是很简单的，事实上不同物种，不同细胞器，其密码子表可能不一样。比如起始密码子并不是只有常见的ATG，而终止密码子在生物界也不止三个。`BioPython`中的密码子表搜集得比较全面，是很好的参考。
 * 翻译过程中循环的退出条件是：出现错误密码子（只有一个碱基，或两个碱基等），或者遇到终止密码子。
 
-## Problem
-
-The 20 commonly occurring amino acids are abbreviated by using 20 letters from the English [alphabet](http://rosalind.info/glossary/alphabet/) (all letters except for B, J, O, U, X, and Z). [Protein strings](http://rosalind.info/glossary/protein-string/) are constructed from these 20 symbols. Henceforth, the term [genetic string](http://rosalind.info/glossary/genetic-string/) will incorporate protein strings along with [DNA strings](http://rosalind.info/glossary/dna-string/) and [RNA strings](http://rosalind.info/glossary/rna-string/).
-
-The [RNA codon table](http://rosalind.info/glossary/rna-codon-table/) dictates the details regarding the encoding of specific codons into the amino acid alphabet.
-
-**Given:** An [RNA string](http://rosalind.info/glossary/rna-string/) corresponding to a strand of mRNA (of length at most 10 [kbp](http://rosalind.info/glossary/kbp/)).
-
-**Return:** The protein string encoded by .
-
-## Sample Dataset
-
-```
-AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA
-```
-
-## Sample Output
-
-```
-MAMAPRTEINSTRING
-```
-
-**Rosalind刷题计划：**
-
-[生物信息学算法之Python实现|Rosalind刷题笔记：001 碱基统计](https://zhuanlan.zhihu.com/p/330815955)
-
-[生物信息学算法之Python实现|Rosalind刷题笔记：002 中心法则：转录](https://zhuanlan.zhihu.com/p/331607752)
-
-[生物信息学算法之Python实现|Rosalind刷题笔记：003 中心法则：翻译]()
-
-生物信息学算法之Python实现|Rosalind刷题笔记：004 求DNA的反向互补序列
-
-
-
-觉得内容不错，请点赞、评论或分享给需要的朋友吧！
-
-[如果你热爱生物信息学，欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，公众号：简说基因
-
-博客地址：[https://jianzuoyi.github.io/](https://link.zhihu.com/?target=https%3A//jianzuoyi.github.io/)，在这里从零开始学生信
+**[学生信欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，请“点赞”为爱发电，只“收藏”不点赞都是耍流氓。**

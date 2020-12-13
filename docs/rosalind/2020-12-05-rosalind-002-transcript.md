@@ -56,42 +56,4 @@ if __name__ == '__main__':
 
 * 只需要将`T`替换成`U`就可以了；替换前先用upper()是为了提高程序的健壮性，使得输入序列中含有小写字母时也能转换成功。
 
----
-
-## Problem
-
-An [RNA string](http://rosalind.info/glossary/rna-string/) is a [string](http://rosalind.info/glossary/string/) formed from the [alphabet](http://rosalind.info/glossary/alphabet/) containing 'A', 'C', 'G', and 'U'.
-
-Given a [DNA string](http://rosalind.info/glossary/dna-string/) corresponding to a coding strand, its transcribed [RNA string](http://rosalind.info/glossary/rna-string/) is formed by replacing all occurrences of 'T' in with 'U' in .
-
-**Given:** A [DNA string](http://rosalind.info/glossary/dna-string/) having [length](http://rosalind.info/glossary/string-length/) at most 1000 [nt](http://rosalind.info/glossary/nucleotide/).
-
-**Return:** The transcribed RNA string of .
-
-## Sample Dataset
-
-```
-GATGGAACTTGACTACGTAAATT
-```
-
-## Sample Output
-
-```
-GAUGGAACUUGACUACGUAAAUU
-```
-
-**Rosalind刷题计划：**
-
-[生物信息学算法之Python实现|Rosalind刷题笔记：001 碱基统计](https://zhuanlan.zhihu.com/p/330815955)
-
-[生物信息学算法之Python实现|Rosalind刷题笔记：002 中心法则：转录]()
-
-生物信息学算法之Python实现|Rosalind刷题笔记：003 中心法则：翻译
-
-
-
-觉得内容不错，请点赞、评论或分享给需要的朋友吧！
-
-[如果你热爱生物信息学，欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，公众号：简说基因
-
-博客地址：[https://jianzuoyi.github.io/](https://link.zhihu.com/?target=https%3A//jianzuoyi.github.io/)，在这里从零开始学生信
+**[学生信欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，请“点赞”为爱发电，只“收藏”不点赞都是耍流氓。**
