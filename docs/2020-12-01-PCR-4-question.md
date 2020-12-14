@@ -99,31 +99,24 @@ PCR反应可能存在问题，比如无扩增条带、有扩增条带但是假�
 * 其可能的机理是降低熔解温度，从而有助于引物退火并辅助DNA聚合酶延伸通过二级结构区；
 * 增强剂浓度要适当。
 
-注：本文内容来源于网络，仅供自己学习参考之用。
+## 参考文献
 
+[百度百科：聚合酶链式反应](https://baike.baidu.com/item/%E8%81%9A%E5%90%88%E9%85%B6%E9%93%BE%E5%BC%8F%E5%8F%8D%E5%BA%94/555320?fromtitle=PCR&fromid=9806&fr=aladdin)
 
+[小木虫：【实验】PCR常见问题总结](http://muchong.com/html/200507/103133.html)
 
-觉得内容不错，请点赞、评论或分享给需要的朋友！
+[丁香通：PCR常见问题及解决方案](https://www.biomart.cn/experiment/430/457/741/36114.htm)
 
-[如果你热爱生物信息学，欢迎关注我的知乎](https://www.zhihu.com/people/jianzuoyi)，或公众号：简说基因
+[钟鼎生物：PCR常见问题原因分析及解决方法](http://www.zoonbio.com/molecular/PCR-solutions.html)
 
-博客地址：[https://jianzuoyi.github.io/](https://link.zhihu.com/?target=https%3A//jianzuoyi.github.io/)，在这里从零开始学习生信
+**从零开始学PCR系列文章：**
 
----
+[从零开始学PCR技术（一）：PCR技术科普](https://zhuanlan.zhihu.com/p/319757338)
 
-**PCR技术系列文章更新计划：**
-
-[从零开始学PCR技术（零）：PCR技术科普](https://zhuanlan.zhihu.com/p/319757338)
-
-[从零开始学PCR技术（一）：PCR技术简介](https://zhuanlan.zhihu.com/p/315451374)
-
-[从零开始学PCR技术（二）：Taq DNA聚合酶](https://zhuanlan.zhihu.com/p/319408322)
+[从零开始学PCR技术（二）：Taq DNA酶](https://zhuanlan.zhihu.com/p/319408322)
 
 [从零开始学PCR技术（三）：PCR引物设计](https://zhuanlan.zhihu.com/p/322323091)
 
-从零开始学PCR技术（四）：常见问题
+[从零开始学PCR技术（四）：常见问题](https://zhuanlan.zhihu.com/p/324396902)
 
-从零开始学PCR技术（五）：试验污染
-
-从零开始学PCR技术（六）：多重PCR
-
+**[觉得内容不错，请点个赞吧!](https://www.zhihu.com/people/jianzuoyi)** 日拱一卒，功不唐捐，run run run。。。

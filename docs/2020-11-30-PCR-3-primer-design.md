@@ -10,7 +10,7 @@ DNA热力学是指温度影响双链DNA（double-stranded DNA，dsDNA）的核�
 
 杂交： 正常情况下，寡核苷酸、DNA或RNA会绑定到其互补序列，互补序列的碱基之间通过氢键连接，最常见的是，核酸碱基对以A = T和G≡C的方式成对形成，其中后者更稳定(由于氢键数较多)。
 
-![DNA strands in solution.gif](https://jianzuoyi.github.io/img/2020-11-30-DNA_strands_in_solution.gif)
+![DNA strands in solution.jpg](https://jianzuoyi.github.io/img/2020-11-30-DNA_strands_in_solution.jpg)
 
 变性：又称DNA解链或融化，是DNA双链因为加热温度升高或者化学物质的诱导变成单链的过程。我们把DNA双链解开一半时所需要的温度称为融点（Melting temperature, T<sub>m</sub>）。T<sub>m</sub>依赖于DNA分子的长度及其特定的核酸序列组成。
 
@@ -106,41 +106,19 @@ PCR反应中有两条引物，即5′端引物和3′引物。设计引物时以
 ## 参考文献
 
 1. PCR Primer Design, 《Methods In Molecular Biology》第402卷
-2. [PCR引物设计大法](https://www.jianshu.com/p/3a2f28bff33d)
-3. [聚合酶链式反应](https://baike.baidu.com/item/%E8%81%9A%E5%90%88%E9%85%B6%E9%93%BE%E5%BC%8F%E5%8F%8D%E5%BA%94/555320?fromtitle=PCR&fromid=9806&fr=aladdin)
+2. [PCR Primer Design](https://links.jianshu.com/go?to=http%3A%2F%2Fcshprotocols.cshlp.org%2Fcontent%2F2009%2F3%2Fpdb.ip65.full.pdf%2Bhtml)来自于2009年第3卷（doi:doi:10.1101/pdb.ip65）
+3. [Bioinformatic tools and guideline for PCR primer design(10.5897/AJB2003.000-1019)](https://links.jianshu.com/go?to=https%3A%2F%2Fwww.ajol.info%2Findex.php%2Fajb%2Farticle%2Fdownload%2F14794%2F58513)
+4. [临窗听风雨：PCR引物设计大法](https://www.jianshu.com/p/3a2f28bff33d)
+5. [百度百科：聚合酶链式反应](https://baike.baidu.com/item/聚合酶链式反应/555320?fromtitle=PCR&fromid=9806&fr=aladdin)
 
-**PCR技术系列文章更新计划：**
+**从零开始学PCR系列文章：**
 
-[从零开始学PCR技术（零）：PCR技术科普](https://zhuanlan.zhihu.com/p/319757338)
+[从零开始学PCR技术（一）：PCR技术科普](https://zhuanlan.zhihu.com/p/319757338)
 
-[从零开始学PCR技术（一）：PCR技术简介](https://zhuanlan.zhihu.com/p/315451374)
+[从零开始学PCR技术（二）：Taq DNA酶](https://zhuanlan.zhihu.com/p/319408322)
 
-[从零开始学PCR技术（二）：Taq DNA聚合酶](https://zhuanlan.zhihu.com/p/319408322)
+[从零开始学PCR技术（三）：PCR引物设计](https://zhuanlan.zhihu.com/p/322323091)
 
-从零开始学PCR技术（四）：PCR引物设计
+[从零开始学PCR技术（四）：常见问题](https://zhuanlan.zhihu.com/p/324396902)
 
-从零开始学PCR技术（五）：常见问题
-
-从零开始学PCR技术（六）：试验污染
-
-从零开始学PCR技术（七）：多重PCR的应用
-
-
-
-<!--
-
-**PCR技术系列文章更新计划：**
-
-[从零开始学PCR技术（一）：PCR技术简介](https://mp.weixin.qq.com/s?__biz=MzIxMjQxMDYxNA==&mid=2247484105&idx=1&sn=374e2b3a2e3c5bcae8c094e5f04ce820&chksm=9747cb50a0304246c9fce633f449ef80e495a13060a52e68e1a2920005008e12795f0420febc&token=1997688248&lang=zh_CN#rd)
-
-[从零开始学PCR技术（二）：Taq DNA聚合酶](https://mp.weixin.qq.com/s?__biz=MzIxMjQxMDYxNA==&mid=2247484112&idx=1&sn=35af9db7d8a5417f61892a6d577a6550&chksm=9747cb49a030425fa29013c2e8de9af992b6b0d2c669a614d799dad8faa838c5b2bc57b6f0b6&token=1997688248&lang=zh_CN#rd)
-
-从零开始学PCR技术（四）：PCR引物设计
-
-从零开始学PCR技术（五）：常见问题
-
-从零开始学PCR技术（六）：试验污染
-
-从零开始学PCR技术（七）：多重PCR的应用
-
--->
+**[觉得内容不错，请点个赞吧!](https://www.zhihu.com/people/jianzuoyi)** 日拱一卒，功不唐捐，run run run。。。
